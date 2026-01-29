@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../output.css">
+    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+    <title>Šachy Tovačov &raquo; Novinky</title>
+</head>
+<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen flex flex-col">
+    <header class="">
+        <div class="p-4 bg-[#111] flex flex-row flex-wrap justify-end gap-5 text-[#dfdfdf] font-semibold text-lg">
+            <a href="../" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
+            <a href="#" class="after:block after:border-b-2 after:scale-x-100 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
+            <a href="../standings/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
+            <a href="../contact/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
+        </div>
+        <div class="bg-black">
+            <div class="relative w-full h-64 flex items-center justify-center before:absolute before:inset-0 before:bg-[url(../img/header_background.avif)] before:bg-cover before:bg-bottom before:opacity-20">
+                <h1 class="relative text-3xl font-bold text-[#efefef] z-10" id="main-heading">Šachy Tovačov</h1>
+            </div>
+        </div>
+    </header>
+    
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow">
+        <h2 class="text-3xl font-bold mb-8 text-[#efefef]">Novinky</h2>
+        
+        <div class="space-y-6" id="news-container">
+            <!-- Článek 1 -->
+            <article class="bg-[#111] rounded-lg overflow-hidden hover:bg-[#1a1a1a] transition-colors">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-sm text-gray-400">15. ledna 2026</span>
+                        <span class="px-3 py-1 bg-blue-600/20 text-blue-400 text-xs rounded-full">Turnaj</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 text-[#efefef]">Zimní turnaj 2026 - Pozvánka</h3>
+                    
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Srdečně vás zveme na tradiční zimní turnaj, který se uskuteční 10. února 2026 v naší klubovně. 
+                        Registrace bude zahájena od 1. února. Turnaj je otevřen pro všechny věkové kategorie.
+                    </p>
+                    
+                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors text-sm font-semibold">
+                        Číst více →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Článek 2 -->
+            <article class="bg-[#111] rounded-lg overflow-hidden hover:bg-[#1a1a1a] transition-colors">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-sm text-gray-400">8. ledna 2026</span>
+                        <span class="px-3 py-1 bg-green-600/20 text-green-400 text-xs rounded-full">Úspěch</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 text-[#efefef]">Skvělé výsledky našich juniorů</h3>
+                    
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Na krajském přeboru mládeže dosáhli naši mladí šachisté výborných výsledků. 
+                        Gratulujeme všem účastníkům a děkujeme za reprezentaci klubu. Jsme na vás hrdí!
+                    </p>
+                    
+                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors text-sm font-semibold">
+                        Číst více →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Článek 3 -->
+            <article class="bg-[#111] rounded-lg overflow-hidden hover:bg-[#1a1a1a] transition-colors">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-sm text-gray-400">20. prosince 2025</span>
+                        <span class="px-3 py-1 bg-yellow-600/20 text-yellow-400 text-xs rounded-full">Oznámení</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-3 text-[#efefef]">Vánoční přestávka</h3>
+                    
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Informujeme vás, že v období od 23. prosince 2025 do 5. ledna 2026 se nebudou konat 
+                        pravidelné schůzky klubu. Další setkání proběhne v úterý 7. ledna 2026.
+                    </p>
+                    
+                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors text-sm font-semibold">
+                        Číst více →
+                    </a>
+                </div>
+            </article>
+
+            <!-- Článek 4 s obrázkem -->
+            <article class="bg-[#111] rounded-lg overflow-hidden hover:bg-[#1a1a1a] transition-colors">
+                <div class="grid md:grid-cols-3">
+                    <div class="md:col-span-1 bg-[#222] flex items-center justify-center p-8">
+                        <div class="text-6xl">🏆</div>
+                    </div>
+                    <div class="md:col-span-2 p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-sm text-gray-400">10. prosince 2025</span>
+                            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 text-xs rounded-full">Výsledky</span>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3 text-[#efefef]">A družstvo na 3. místě!</h3>
+                        
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Naše A družstvo se umístilo na skvělém 3. místě v oblastním přeboru Olomouckého kraje - jih. 
+                            Děkujeme všem hráčům za vynikající výkony během celé sezóny.
+                        </p>
+                        
+                        <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors text-sm font-semibold">
+                            Číst více →
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer class="bg-[#111] mt-auto py-8 border-t border-[#333]">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-6">
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Šachy Tovačov</h3>
+                    <p class="text-gray-400 text-sm">
+                        Šachový klub pro všechny věkové kategorie a úrovně hráčů.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Rychlé odkazy</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="../news/" class="text-gray-400 hover:text-white transition-colors">Novinky</a></li>
+                        <li><a href="../standings/" class="text-gray-400 hover:text-white transition-colors">Tabulky a členové</a></li>
+                        <li><a href="../contact/" class="text-gray-400 hover:text-white transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Kontakt</h3>
+                    <p class="text-gray-400 text-sm mb-1">Email: calajiri@seznam.cz</p>
+                    <p class="text-gray-400 text-sm">Tel: +420 608 618 163</p>
+                </div>
+            </div>
+            <div class="border-t border-[#333] pt-6 text-center text-gray-500 text-sm flex flex-row flex-wrap justify-center md:justify-between gap-4">
+                <p class="">Website created by RV + MZ with 💙</p>
+                <p class="block md:absolute md:left-1/2 md:-translate-x-1/2">&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
+                <a href="../login/" class="hover:underline">Admin-Panel</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/news.js"></script>
+</body>
+</html>

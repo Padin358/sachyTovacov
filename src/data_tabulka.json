@@ -1,0 +1,38 @@
+[
+    {
+        "jmeno": "Hráč A",
+        "datum_narozeni": "15. 12. 1980",
+        "vt": 1750,
+        "c_lok": 1750,
+        "elo_cr": 1750,
+        "elo_rapid": 1750,
+        "elo_fide": 1750
+    },
+    {
+        "jmeno": "Hráč B",
+        "datum_narozeni": "15. 12. 1980",
+        "vt": 1750,
+        "c_lok": 1750,
+        "elo_cr": 1750,
+        "elo_rapid": 1750,
+        "elo_fide": 1750
+    },
+    {
+        "jmeno": "Hráč C",
+        "datum_narozeni": "15. 12. 1980",
+        "vt": 1750,
+        "c_lok": 1750,
+        "elo_cr": 1750,
+        "elo_rapid": 1750,
+        "elo_fide": 1750
+    },
+    {
+        "jmeno": "Hráč D",
+        "datum_narozeni": "15. 12. 1980",
+        "vt": 1750,
+        "c_lok": 1750,
+        "elo_cr": 1750,
+        "elo_rapid": 1750,
+        "elo_fide": 1750
+    }
+]

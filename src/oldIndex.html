@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+    <title>Šachy Tovačov &raquo; Úvod</title>
+</head>
+<body>
+    <header class="">
+        <div class="p-4 bg-[#111] flex flex-row flex-wrap justify-end gap-5 text-[#dfdfdf] font-semibold text-lg">
+            <a href="#" class="after:block after:border-b-2 after:scale-x-100 after:origin-bottom after:transition-all after:duration-300 hover:after:scale-x-100">Úvod</a>
+            <a href="" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-300 hover:after:scale-x-100">Novinky</a>
+            <a href="" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-300 hover:after:scale-x-100">Tabulky</a>
+            <a href="" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-300 hover:after:scale-x-100">Kontakt</a>
+        </div>
+        <div class="bg-black">
+            <div class="relative w-full h-64 flex items-center justify-center before:absolute before:inset-0 before:bg-[url(./img/header_background.avif)] before:bg-cover before:bg-bottom before:opacity-20">
+                <h1 class="relative text-3xl font-bold text-[#efefef] z-10" id="main-heading">Šachy Tovačov</h1>
+            </div>
+        </div>
+    </header>
+    <main class="">
+        <table class="w-full border-collapse text-[#dfdfdf]">
+            <tr class="bg-[#222]">
+                <th class="border border-[#333] p-2">Jméno</th>
+                <th class="border border-[#333] p-2">Datum Narození</th>
+                <th class="border border-[#333] p-2">VT</th>
+                <th class="border border-[#333] p-2">Č. LOK</th>
+                <th class="border border-[#333] p-2">ELO-ČR</th>
+                <th class="border border-[#333] p-2">ELO-Rapid</th>
+                <th class="border border-[#333] p-2">ELO-FIDE</th>
+            </tr>
+            <tr class="bg-[#111]">
+                <td class="border border-[#333] p-2">V. Klenovský</td>
+                <td class="border border-[#333] p-2">15. 12. 1980</td>
+                <td class="border border-[#333] p-2">1750</td>
+                <td class="border border-[#333] p-2">1750</td>
+                <td class="border border-[#333] p-2">1750</td>
+                <td class="border border-[#333] p-2">1750</td>
+                <td class="border border-[#333] p-2">1750</td>
+            </tr>
+        </table>
+    </main>
+    <footer class="">
+        
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
