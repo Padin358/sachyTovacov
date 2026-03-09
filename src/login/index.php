@@ -2,7 +2,7 @@
 session_start();
 
 // Hard-coded credentials
-$correct_username = 'admin';
+$correct_username = password_hash('admin', PASSWORD_DEFAULT);
 $correct_password_hash = password_hash('heslo123', PASSWORD_DEFAULT); // Změň heslo!
 
 // Pokud je už přihlášený, přesměruj do admin panelu
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     
     // Ověření přihlašovacích údajů
-    if ($username === $correct_username && password_verify($password, $correct_password_hash)) {
+    if (password_verify($username, $correct_username) && password_verify($password, $correct_password_hash)) {
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $username;
         header('Location: admin/');
@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Šachy Tovačov &raquo; Úvod</title>
 </head>
 <body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen flex flex-col justify-center items-center">
@@ -49,11 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <form method="POST" action="" class="flex flex-col justify-center gap-5 p-3">
             <div class="flex flex-row flex-wrap justify-evenly gap-5">
-                <p class="">Přihlašovací jméno:</p>
+                <div class="flex flex-col justify-center items-center">
+                <i class="fa-solid fa-user"></i>
+                </div>
                 <input type="text" name="username" id="username-input" required class="cursor-pointer bg-[#2d2d2d] p-1 rounded-md hover:bg-[#393939] transition-colors duration-all flex-grow">
             </div>
             <div class="flex flex-row flex-wrap justify-evenly gap-5 relative">
-                <p class="">Heslo:</p>
+                <div class="flex flex-col justify-center items-center">
+                <i class="fa-solid fa-lock"></i>
+                </div>
                 <input type="password" name="password" id="password-input" required class="cursor-pointer bg-[#2d2d2d] p-1 pr-10 rounded-md hover:bg-[#393939] transition-colors duration-all flex-grow">
                 <button type="button" id="toggle-password" class="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors cursor-pointer">
                     <svg id="eye-closed" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
