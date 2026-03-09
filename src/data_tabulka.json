@@ -4,7 +4,7 @@
         "datum_narozeni": "15. 12. 1980",
         "vt": 1750,
         "c_lok": 1750,
-        "elo_cr": 1750,
+        "elo_cr": 1200,
         "elo_rapid": 1750,
         "elo_fide": 1750
     },
@@ -19,8 +19,8 @@
     },
     {
         "jmeno": "Hráč C",
-        "datum_narozeni": "15. 12. 1980",
-        "vt": 1750,
+        "datum_narozeni": "15. 12. 1996",
+        "vt": 20000,
         "c_lok": 1750,
         "elo_cr": 1750,
         "elo_rapid": 1750,

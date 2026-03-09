@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "datum": "15. ledna 2026",
+        "kategorie": "Jiné",
+        "nadpis": "Zimní turnaj 2026 - Pozvánka",
+        "text": "Srdečně vás zveme na tradiční zimní turnaj, který se uskuteční 10. února 2026 v naší klubovně. Registrace bude zahájena od 1. února. Turnaj je otevřen pro všechny věkové kategorie.",
+        "obrazek": null,
+        "galerie": []
+    },
+    {
+        "id": 2,
+        "datum": "8. ledna 2026",
+        "kategorie": "Úspěch",
+        "nadpis": "Skvělé výsledky našich juniorů",
+        "text": "Na krajském přeboru mládeže dosáhli naši mladí šachisté výborných výsledků. Gratulujeme všem účastníkům a děkujeme za reprezentaci klubu. Jsme na vás hrdí!",
+        "obrazek": null,
+        "galerie": []
+    },
+    {
+        "id": 3,
+        "datum": "20. prosince 2025",
+        "kategorie": "Oznámení",
+        "nadpis": "Vánoční přestávka",
+        "text": "Informujeme vás, že v období od 23. prosince 2025 do 5. ledna 2026 se nebudou konat pravidelné schůzky klubu. Další setkání proběhne v úterý 7. ledna 2026.",
+        "obrazek": null,
+        "galerie": []
+    },
+    {
+        "id": 4,
+        "datum": "10. prosince 2025",
+        "kategorie": "Výsledky",
+        "nadpis": "A družstvo na 3. místě!",
+        "text": "Naše A družstvo se umístilo na skvělém 3. místě v oblastním přeboru Olomouckého kraje - jih. Děkujeme všem hráčům za vynikající výkony během celé sezóny.",
+        "obrazek": null,
+        "galerie": []
+    },
+    {
+        "id": 5,
+        "datum": "15. ledna 2026",
+        "kategorie": "Oznámení",
+        "nadpis": "adsfasdf",
+        "text": "asdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadf",
+        "obrazek": "img\/novinky\/clanek_69aefe3ad9796.jpg",
+        "galerie": [
+            "img\/novinky\/galerie_69aefc32822ad.png",
+            "img\/novinky\/galerie_69aefc328250f.png",
+            "img\/novinky\/galerie_69aefc328333a.jpg"
+        ]
+    }
+]
