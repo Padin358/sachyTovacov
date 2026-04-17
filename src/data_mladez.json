@@ -1,0 +1,159 @@
+{
+    "kolo": 2,
+    "datum": "13.3.2026",
+    "skupiny": [
+        {
+            "nazev": "Vedoucí dvojice",
+            "hraci": [
+                {
+                    "cislo": "1",
+                    "jmeno": "Holas Jan"
+                },
+                {
+                    "cislo": "2",
+                    "jmeno": "Bezroučková Adéla"
+                }
+            ]
+        },
+        {
+            "nazev": "Vyzývací skupina",
+            "hraci": [
+                {
+                    "cislo": "1",
+                    "jmeno": "Zatloukal David"
+                },
+                {
+                    "cislo": "2",
+                    "jmeno": "Gregr Tomáš"
+                },
+                {
+                    "cislo": "3",
+                    "jmeno": "Vu Minh Hieu"
+                },
+                {
+                    "cislo": "4",
+                    "jmeno": "Vu Khanh Či"
+                }
+            ]
+        },
+        {
+            "nazev": "1. postupová skupina I",
+            "hraci": [
+                {
+                    "cislo": "1",
+                    "jmeno": "Petrovská Dorota"
+                },
+                {
+                    "cislo": "2",
+                    "jmeno": "Faltýnek Jaroslav"
+                },
+                {
+                    "cislo": "3",
+                    "jmeno": "Šógor Miloš"
+                },
+                {
+                    "cislo": "4",
+                    "jmeno": "Gálíček Šimon"
+                }
+            ]
+        },
+        {
+            "nazev": "1. postupová skupina II",
+            "hraci": [
+                {
+                    "cislo": "1",
+                    "jmeno": "Zlámal Tomáš"
+                },
+                {
+                    "cislo": "2",
+                    "jmeno": "Brázda Vojtěch"
+                },
+                {
+                    "cislo": "3",
+                    "jmeno": "Churavý Filip"
+                }
+            ]
+        },
+        {
+            "nazev": "2. postupová skupina",
+            "hraci": [
+                {
+                    "cislo": "1",
+                    "jmeno": "Benešová Johana"
+                },
+                {
+                    "cislo": "2",
+                    "jmeno": "Beneš Daniel"
+                },
+                {
+                    "cislo": "3",
+                    "jmeno": "Možnar Jegor"
+                }
+            ]
+        }
+    ],
+    "doprovodny_text": [
+        "Ve dvojicích má v prvním hracím kole bílé výše postavený hráč.",
+        "V trojicích a čtveřicích má první uvedený hráč bílé kameny, jak je běžné, jen pokud nebude tabulka ošrafovaná. V ošrafované tabulce se hraje s opačnými barvami dle níže umístěného ošrafovaného rozpisu.",
+        "U trojic se utkání se 4 samozřejmě nekonají.",
+        "Hrací tempo pro druhé losovací kolo je 40 minut plus přídavek 30 vteřin.",
+        "Do dalšího losovacího kola: Vítěz vyzývací skupiny postupuje k dvojzápasu s vítězem vedoucí dvojice. Poražený v dvojzápase ve vedoucí dvojici sestupuje do vyzývací skupiny. Třetí a čtvrtý z vyzývací skupiny sestupuje do 1. postupové skupiny.",
+        "Oba vítězové v 1. postupové skupině postupují do vyzývací skupiny. První a druhý hráč z 2. postupové skupiny postupuje do 1. postupové skupiny. Poslední hráč z každé 1. postupové skupiny sestupuje do 2. postupové skupiny.",
+        "V případě rovného výsledku zůstává na své vyšší pozici výše umístěný hráč.",
+        "Před každým dalším losovacím kolem se může kterýkoliv hráč z nastávajícího losovacího kola odhlásit nebo se může kdokoliv nezúčastněný v minulém losovacím kole do nastávajícího losovacího kola přihlásit."
+    ],
+    "rozpisy": [
+        {
+            "nazev": "Rozpis pro čtveřice a trojice",
+            "radky": [
+                {
+                    "kolo": "První hrací kolo",
+                    "zapasy": [
+                        "1 - 4",
+                        "2 - 3"
+                    ]
+                },
+                {
+                    "kolo": "Druhé hrací kolo",
+                    "zapasy": [
+                        "4 - 3",
+                        "1 - 2"
+                    ]
+                },
+                {
+                    "kolo": "Třetí hrací kolo",
+                    "zapasy": [
+                        "2 - 4",
+                        "3 - 1"
+                    ]
+                }
+            ]
+        },
+        {
+            "nazev": "Rozpis pro čtveřice a trojice při rozlosování s opačnými barvami",
+            "radky": [
+                {
+                    "kolo": "První hrací kolo",
+                    "zapasy": [
+                        "4 - 1",
+                        "3 - 2"
+                    ]
+                },
+                {
+                    "kolo": "Druhé hrací kolo",
+                    "zapasy": [
+                        "3 - 4",
+                        "2 - 1"
+                    ]
+                },
+                {
+                    "kolo": "Třetí hrací kolo",
+                    "zapasy": [
+                        "4 - 2",
+                        "1 - 3"
+                    ]
+                }
+            ]
+        }
+    ]
+}

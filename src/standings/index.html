@@ -22,27 +22,64 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto py-8 grow">
-        <table class="w-full table-fixed border-collapse text-[#dfdfdf]">
-            <thead>
-                <tr class="bg-[#222]">
-                    <th class="border border-[#333] p-2">Jméno hráče</th>
-                    <th class="border border-[#333] p-2">Ročník</th>
-                    <th class="border border-[#333] p-2">ELO</th>
-                    <th class="border border-[#333] p-2">ELO-R</th>
-                    <th class="border border-[#333] p-2">Registrace</th>
-                </tr>
-            </thead>
-            <tbody id="standings-tbody">
-                <tr class="bg-[#111]">
-                    <td class="border border-[#333] p-2">V. Klenovský</td>
-                    <td class="border border-[#333] p-2 text-center">1980</td>
-                    <td class="border border-[#333] p-2 text-center">1750</td>
-                    <td class="border border-[#333] p-2 text-center">1750</td>
-                    <td class="border border-[#333] p-2 text-center">-</td>
-                </tr>
-            </tbody>
-        </table>
+    <main class="max-w-6xl mx-auto py-8 grow px-4">
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 text-[#efefef]">Tabulka hráčů</h2>
+            <table class="w-full table-fixed border-collapse text-[#dfdfdf]">
+                <thead>
+                    <tr class="bg-[#222]">
+                        <th class="border border-[#333] p-2">Jméno hráče</th>
+                        <th class="border border-[#333] p-2">Ročník</th>
+                        <th class="border border-[#333] p-2">ELO</th>
+                        <th class="border border-[#333] p-2">ELO-R</th>
+                        <th class="border border-[#333] p-2">Registrace</th>
+                    </tr>
+                </thead>
+                <tbody id="standings-tbody">
+                    <tr class="bg-[#111]">
+                        <td class="border border-[#333] p-2">V. Klenovský</td>
+                        <td class="border border-[#333] p-2 text-center">1980</td>
+                        <td class="border border-[#333] p-2 text-center">1750</td>
+                        <td class="border border-[#333] p-2 text-center">1750</td>
+                        <td class="border border-[#333] p-2 text-center">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-2 text-[#efefef]">Mládež</h2>
+            <p class="text-gray-400 mb-4" id="youth-standings-info">2. losovací kolo od 13.3.2026</p>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-[#dfdfdf]">
+                    <thead>
+                        <tr class="bg-[#222]">
+                            <th class="border border-[#333] p-2">Skupina</th>
+                            <th class="border border-[#333] p-2">1</th>
+                            <th class="border border-[#333] p-2">2</th>
+                            <th class="border border-[#333] p-2">3</th>
+                            <th class="border border-[#333] p-2">4</th>
+                        </tr>
+                    </thead>
+                    <tbody id="youth-standings-tbody">
+                        <tr class="bg-[#111]">
+                            <td class="border border-[#333] p-2 font-semibold">Vedoucí dvojice</td>
+                            <td class="border border-[#333] p-2">1. Holas Jan</td>
+                            <td class="border border-[#333] p-2">2. Bezroučková Adéla</td>
+                            <td class="border border-[#333] p-2">-</td>
+                            <td class="border border-[#333] p-2">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold mb-3 text-[#efefef]">Informace</h3>
+                <ul class="space-y-3" id="youth-text-list"></ul>
+            </div>
+
+            <div class="mt-10 space-y-6" id="youth-schedules"></div>
+        </section>
     </main>
 
     <footer class="bg-[#111] mt-auto py-8 border-t border-[#333]">
