@@ -14,7 +14,7 @@ fetch('../data_novinky.json?v=' + Date.now())
         const container = document.getElementById('news-container')
         container.innerHTML = ''
 
-        data.forEach(clanek => {
+        data.slice().reverse().forEach(clanek => {
             const barva = categoryColors[clanek.kategorie] ?? categoryColors['Jiné']
             const perex = clanek.text.length > PEREX_LENGTH
                 ? clanek.text.substring(0, PEREX_LENGTH) + '...'

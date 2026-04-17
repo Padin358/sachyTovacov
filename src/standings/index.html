@@ -26,29 +26,25 @@
         <table class="w-full table-fixed border-collapse text-[#dfdfdf]">
             <thead>
                 <tr class="bg-[#222]">
-                    <th class="border border-[#333] p-2">Jméno</th>
-                    <th class="border border-[#333] p-2">Datum Narození</th>
-                    <th class="border border-[#333] p-2">VT</th>
-                    <th class="border border-[#333] p-2">Č. LOK</th>
-                    <th class="border border-[#333] p-2">ELO-ČR</th>
-                    <th class="border border-[#333] p-2">ELO-Rapid</th>
-                    <th class="border border-[#333] p-2">ELO-FIDE</th>
+                    <th class="border border-[#333] p-2">Jméno hráče</th>
+                    <th class="border border-[#333] p-2">Ročník</th>
+                    <th class="border border-[#333] p-2">ELO</th>
+                    <th class="border border-[#333] p-2">ELO-R</th>
+                    <th class="border border-[#333] p-2">Registrace</th>
                 </tr>
             </thead>
             <tbody id="standings-tbody">
                 <tr class="bg-[#111]">
                     <td class="border border-[#333] p-2">V. Klenovský</td>
-                    <td class="border border-[#333] p-2">15. 12. 1980</td>
+                    <td class="border border-[#333] p-2 text-center">1980</td>
                     <td class="border border-[#333] p-2 text-center">1750</td>
                     <td class="border border-[#333] p-2 text-center">1750</td>
-                    <td class="border border-[#333] p-2 text-center">1750</td>
-                    <td class="border border-[#333] p-2 text-center">1750</td>
-                    <td class="border border-[#333] p-2 text-center">1750</td>
+                    <td class="border border-[#333] p-2 text-center">-</td>
                 </tr>
             </tbody>
         </table>
     </main>
-    
+
     <footer class="bg-[#111] mt-auto py-8 border-t border-[#333]">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8 mb-6">
@@ -73,13 +69,13 @@
                 </div>
             </div>
             <div class="border-t border-[#333] pt-6 text-center text-gray-500 text-sm flex flex-row flex-wrap justify-center md:justify-between gap-4">
-                <p class="">Website created by RV + MZ with 💙</p>
+                <p class="">Website created by RV + MZ with love</p>
                 <p class="block md:absolute md:left-1/2 md:-translate-x-1/2">&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
                 <a href="../login/" class="hover:underline">Admin-Panel</a>
             </div>
         </div>
     </footer>
-    
+
     <script src="../js/standings.js" type="module"></script>
 </body>
 </html>
