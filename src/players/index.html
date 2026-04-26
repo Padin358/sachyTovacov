@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
     <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
-    <title>Šachy Tovačov &raquo; Tabulky</title>
+    <title>Šachy Tovačov &raquo; Hráči</title>
 </head>
 <body class="flex min-h-screen flex-col bg-[#0a0a0a] text-[#dfdfdf]">
     <header class="">
         <div class="flex flex-row flex-wrap justify-center gap-5 bg-[#111] p-4 text-lg font-semibold text-[#dfdfdf] md:justify-end">
             <a href="../" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
             <a href="../news/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
-            <a href="../players/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
-            <a href="#" class="after:block after:origin-bottom after:scale-x-100 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
+            <a href="#" class="after:block after:origin-bottom after:scale-x-100 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
+            <a href="../standings/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
             <a href="../contact/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
         </div>
         <div class="bg-black">
@@ -25,37 +25,29 @@
 
     <main class="mx-auto max-w-6xl grow px-4 py-8">
         <section>
-            <h2 class="mb-2 text-2xl font-semibold text-[#efefef]">Mládež</h2>
-            <p class="mb-4 text-gray-400" id="youth-standings-info">2. losovací kolo od 13.3.2026</p>
+            <h2 class="mb-4 text-2xl font-semibold text-[#efefef]">Tabulka hráčů</h2>
             <div class="overflow-x-auto">
-                <table class="w-full border-collapse text-[#dfdfdf]">
+                <table class="w-full min-w-[720px] table-fixed border-collapse text-[#dfdfdf]">
                     <thead>
                         <tr class="bg-[#222]">
-                            <th class="border border-[#333] p-2">Skupina</th>
-                            <th class="border border-[#333] p-2">1</th>
-                            <th class="border border-[#333] p-2">2</th>
-                            <th class="border border-[#333] p-2">3</th>
-                            <th class="border border-[#333] p-2">4</th>
+                            <th class="border border-[#333] p-2">Jméno hráče</th>
+                            <th class="border border-[#333] p-2">Ročník</th>
+                            <th class="border border-[#333] p-2">ELO</th>
+                            <th class="border border-[#333] p-2">ELO-R</th>
+                            <th class="border border-[#333] p-2">Registrace</th>
                         </tr>
                     </thead>
-                    <tbody id="youth-standings-tbody">
+                    <tbody id="standings-tbody">
                         <tr class="bg-[#111]">
-                            <td class="border border-[#333] p-2 font-semibold">Vedoucí dvojice</td>
-                            <td class="border border-[#333] p-2">1. Holas Jan</td>
-                            <td class="border border-[#333] p-2">2. Bezroučková Adéla</td>
-                            <td class="border border-[#333] p-2">-</td>
-                            <td class="border border-[#333] p-2">-</td>
+                            <td class="border border-[#333] p-2">V. Klenovský</td>
+                            <td class="border border-[#333] p-2 text-center">1980</td>
+                            <td class="border border-[#333] p-2 text-center">1750</td>
+                            <td class="border border-[#333] p-2 text-center">1750</td>
+                            <td class="border border-[#333] p-2 text-center">-</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="mt-8">
-                <h3 class="mb-3 text-xl font-semibold text-[#efefef]">Informace</h3>
-                <ul class="space-y-3" id="youth-text-list"></ul>
-            </div>
-
-            <div class="mt-10 space-y-6" id="youth-schedules"></div>
         </section>
     </main>
 
@@ -91,6 +83,6 @@
         </div>
     </footer>
 
-    <script src="../js/standings.js" type="module"></script>
+    <script src="../js/players.js" type="module"></script>
 </body>
 </html>

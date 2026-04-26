@@ -1,30 +1,177 @@
 [
     {
-        "jmeno": "Hráč A",
-        "rocnik": "1980",
-        "elo": 1200,
-        "elo_r": 1750,
-        "registrace": ""
+        "jmeno": "Beneš Daniel",
+        "rocnik": "2017",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
     },
     {
-        "jmeno": "Hráč B",
-        "rocnik": "1980",
-        "elo": 1750,
-        "elo_r": 1750,
-        "registrace": ""
+        "jmeno": "Benešová Johana",
+        "rocnik": "2010",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
     },
     {
-        "jmeno": "Hráč C",
-        "rocnik": "1996",
-        "elo": 1750,
-        "elo_r": 1750,
-        "registrace": ""
+        "jmeno": "Bezroučková Adéla",
+        "rocnik": "2012",
+        "elo": 0,
+        "elo_r": 1087,
+        "registrace": "Aktivní"
     },
     {
-        "jmeno": "Hráč D",
-        "rocnik": "1980",
-        "elo": 1750,
-        "elo_r": 1750,
-        "registrace": ""
+        "jmeno": "Brázda Vojtěch",
+        "rocnik": "2013",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Čala Jiří",
+        "rocnik": "1957",
+        "elo": 1677,
+        "elo_r": 1609,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Chlup Petr",
+        "rocnik": "2002",
+        "elo": 1349,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Churavý Filip",
+        "rocnik": "2013",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Ďatel Oldřich",
+        "rocnik": "1970",
+        "elo": 1763,
+        "elo_r": 1700,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Faltýnek Jaroslav",
+        "rocnik": "2013",
+        "elo": 0,
+        "elo_r": 1062,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Galíček Šimon",
+        "rocnik": "2012",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Gregr Tomáš",
+        "rocnik": "2011",
+        "elo": 0,
+        "elo_r": 1015,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Holas Jan",
+        "rocnik": "2011",
+        "elo": 0,
+        "elo_r": 1043,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Jirák Miroslav",
+        "rocnik": "1970",
+        "elo": 1354,
+        "elo_r": 1456,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Možnar Jegor",
+        "rocnik": "2019",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Najmon Miloš",
+        "rocnik": "1965",
+        "elo": 1552,
+        "elo_r": 1606,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Nedoma Zdeněk",
+        "rocnik": "1975",
+        "elo": 1416,
+        "elo_r": 1462,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Petrovská Dorota",
+        "rocnik": "2010",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Řihošek Vladimír",
+        "rocnik": "1960",
+        "elo": 1578,
+        "elo_r": 1680,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Šógor Miloš",
+        "rocnik": "2012",
+        "elo": 0,
+        "elo_r": 1018,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Šuga Petr",
+        "rocnik": "1973",
+        "elo": 1103,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Vu Khanh Chi",
+        "rocnik": "2016",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Vu Minh Hieu",
+        "rocnik": "2017",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Zacpal Rostislav",
+        "rocnik": "1970",
+        "elo": 1517,
+        "elo_r": 1528,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Zatloukal David",
+        "rocnik": "2014",
+        "elo": 0,
+        "elo_r": 1201,
+        "registrace": "Aktivní"
+    },
+    {
+        "jmeno": "Zlámal Tomáš",
+        "rocnik": "2014",
+        "elo": 0,
+        "elo_r": 0,
+        "registrace": "Aktivní"
     }
 ]

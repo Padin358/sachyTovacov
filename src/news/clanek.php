@@ -39,6 +39,7 @@ $galerie = $clanek['galerie'] ?? [];
     <div class="p-4 bg-[#111] flex flex-row flex-wrap justify-center md:justify-end gap-5 text-[#dfdfdf] font-semibold text-lg">
         <a href="../" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
         <a href="../news/" class="after:block after:border-b-2 after:scale-x-100 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
+        <a href="../players/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
         <a href="../standings/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
         <a href="../contact/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
     </div>

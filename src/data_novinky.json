@@ -1,51 +1,20 @@
 [
     {
         "id": 1,
-        "datum": "15. ledna 2026",
-        "kategorie": "Jiné",
-        "nadpis": "Zimní turnaj 2026 - Pozvánka",
-        "text": "Srdečně vás zveme na tradiční zimní turnaj, který se uskuteční 10. února 2026 v naší klubovně. Registrace bude zahájena od 1. února. Turnaj je otevřen pro všechny věkové kategorie.",
+        "datum": "11. března 2026",
+        "kategorie": "Oznámení",
+        "nadpis": "Naši noví členové",
+        "text": "Dobrý den všem.\r\nDovolte, abych vám všem představil pět našich nových mladých spoluhráčů.\r\nJsou to tito naši noví spoluhráči:\r\n\r\nJohana Benešová\r\nDaniel Beneš\r\nŠimon Gálíček\r\nFilip Churavý\r\nJegor Možnar\r\n\r\nA tímto bych je uvítal v našich řadách, zajisté jménem šech členů našeho oddílu.  Ať se jim daří!\r\n\r\nAle také někteří mladí činnost v našem oddíle ukončili:  Viktor Šmíd, Anežka Šmídová, Tereza Doleželová, Matěj Holas.  Třeba se jim někdy zasteskne:-)\r\n\r\n--\r\nS přáním hezkého dne           Jiří Čala, vedoucí mládeže",
         "obrazek": null,
         "galerie": []
     },
     {
         "id": 2,
-        "datum": "8. ledna 2026",
-        "kategorie": "Úspěch",
-        "nadpis": "Skvělé výsledky našich juniorů",
-        "text": "Na krajském přeboru mládeže dosáhli naši mladí šachisté výborných výsledků. Gratulujeme všem účastníkům a děkujeme za reprezentaci klubu. Jsme na vás hrdí!",
-        "obrazek": null,
+        "datum": "1. dubna 2026",
+        "kategorie": "Jiné",
+        "nadpis": "",
+        "text": "Pozdrav všem.\r\n\r\nPřeji krásné Velikonoce a pěkné jaro.\r\n\r\n--\r\nA také přeji krásný den           Jiří Čala, vedoucí mládeže",
+        "obrazek": "img\/novinky\/clanek_69e6603c128be.png",
         "galerie": []
-    },
-    {
-        "id": 3,
-        "datum": "20. prosince 2025",
-        "kategorie": "Oznámení",
-        "nadpis": "Vánoční přestávka",
-        "text": "Informujeme vás, že v období od 23. prosince 2025 do 5. ledna 2026 se nebudou konat pravidelné schůzky klubu. Další setkání proběhne v úterý 7. ledna 2026.",
-        "obrazek": null,
-        "galerie": []
-    },
-    {
-        "id": 4,
-        "datum": "10. prosince 2025",
-        "kategorie": "Výsledky",
-        "nadpis": "A družstvo na 3. místě!",
-        "text": "Naše A družstvo se umístilo na skvělém 3. místě v oblastním přeboru Olomouckého kraje - jih. Děkujeme všem hráčům za vynikající výkony během celé sezóny.",
-        "obrazek": null,
-        "galerie": []
-    },
-    {
-        "id": 5,
-        "datum": "15. ledna 2026",
-        "kategorie": "Oznámení",
-        "nadpis": "adsfasdf",
-        "text": "asdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadfasdfasdfasdfasdfsadf",
-        "obrazek": "img\/novinky\/clanek_69aefe3ad9796.jpg",
-        "galerie": [
-            "img\/novinky\/galerie_69aefc32822ad.png",
-            "img\/novinky\/galerie_69aefc328250f.png",
-            "img\/novinky\/galerie_69aefc328333a.jpg"
-        ]
     }
 ]
