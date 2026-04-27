@@ -24,10 +24,10 @@ fetch('../data_mladez.json')
 
                 tr.innerHTML = `
                     <td class="table-cell" data-label="Skupina">${skupina.nazev}</td>
-                    <td class="table-cell" data-label="1">${players[0]}</td>
-                    <td class="table-cell" data-label="2">${players[1]}</td>
-                    <td class="table-cell" data-label="3">${players[2]}</td>
-                    <td class="table-cell" data-label="4">${players[3]}</td>
+                    <td class="table-cell" data-label="Pořadí 1">${players[0]}</td>
+                    <td class="table-cell" data-label="Pořadí 2">${players[1]}</td>
+                    <td class="table-cell" data-label="Pořadí 3">${players[2]}</td>
+                    <td class="table-cell" data-label="Pořadí 4">${players[3]}</td>
                 `;
 
                 tbody.appendChild(tr);

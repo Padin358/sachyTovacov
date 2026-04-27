@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <div>
                 <p class="admin-kicker">Administrace</p>
                 <h1 class="admin-title">Správa novinek</h1>
-                <p class="admin-subtitle">Novinky, titulní obrázky i galerie teď upravujete v prostředí, které vizuálně navazuje na veřejný web a zůstává dobře použitelné i na mobilu.</p>
+                <p class="admin-subtitle">Správa novinek, titulních obrázků a fotogalerií k jednotlivým článkům.</p>
             </div>
             <div class="admin-header__actions">
                 <a href="index.php" class="admin-button admin-button--secondary">Zpět na přehled</a>

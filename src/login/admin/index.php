@@ -85,7 +85,7 @@ if (isset($_POST['obnova']) && !empty($_FILES['zaloha_zip']['name'])) {
             <div>
                 <p class="admin-kicker">Správa obsahu</p>
                 <h1 class="admin-title">Administrace Šachy Tovačov</h1>
-                <p class="admin-subtitle">Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>. Odtud můžete spravovat články, soupisku i mládežnickou sekci, a zároveň pohodlně zálohovat data.</p>
+                <p class="admin-subtitle">Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>. Odtud můžete spravovat články, soupisku i mládežnickou sekci a provádět zálohu dat.</p>
             </div>
             <div class="admin-header__actions">
                 <a href="../../" class="admin-button admin-button--ghost">Veřejný web</a>
@@ -95,7 +95,7 @@ if (isset($_POST['obnova']) && !empty($_FILES['zaloha_zip']['name'])) {
 
         <section class="admin-card">
             <h2 class="admin-section-title">Co chcete upravit</h2>
-            <p class="admin-help">Všechny administrativní sekce teď používají stejný klidnější design a skládají se korektně i na menších displejích.</p>
+            <p class="admin-help">Přístup k úpravám jednotlivých sekcí webu.</p>
             <div class="admin-quicklinks" style="margin-top: 1.25rem;">
                 <a href="edit_standings.php" class="admin-quicklink">
                     <p class="admin-quicklink__title">Tabulka hráčů</p>

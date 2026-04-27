@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <section class="admin-login-card">
             <p class="admin-kicker">Administrace klubu</p>
             <h1 class="admin-title">Přihlášení</h1>
-            <p class="admin-subtitle">Klidnější, responzivní a typograficky sladěná administrace pro správu novinek, hráčů a mládežnických tabulek.</p>
+            <p class="admin-subtitle">Administrační rozhraní pro správu novinek, hráčů a mládežnických tabulek.</p>
 
             <?php if ($error): ?>
                 <div class="admin-alert admin-alert--error"><?php echo htmlspecialchars($error); ?></div>

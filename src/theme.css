@@ -1034,7 +1034,7 @@ img {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* === Tabulky na mobilu === */
+    /* === Responzivní tabulky === */
     /* Wrapper umožní horizontální scroll, kdyby cokoliv přeteklo */
     .table-scroll {
         overflow-x: auto;
@@ -1058,8 +1058,7 @@ img {
 
     .standings-table {
         min-width: 0;
-        border-collapse: separate;
-        border-spacing: 0;
+        border: 0;
     }
 
     .standings-table thead {
@@ -1072,8 +1071,6 @@ img {
     }
 
     .table-row {
-        display: grid;
-        gap: 0.2rem;
         margin-bottom: 0.85rem;
         padding: 0.55rem;
         border: 1px solid rgba(104, 80, 44, 0.14);
@@ -1088,32 +1085,40 @@ img {
 
     .table-cell {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 0.75rem;
-        padding: 0.6rem 0.7rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+        padding: 0.85rem 0.75rem;
         border: 0;
-        background: transparent;
-        text-align: right;
+        border-bottom: 1px solid rgba(104, 80, 44, 0.08);
+        background: transparent !important;
+        text-align: left;
         word-break: break-word;
         overflow-wrap: anywhere;
         min-width: 0;
     }
 
+    .table-cell:last-child {
+        border-bottom: 0;
+    }
+
+    .table-cell--center {
+        text-align: left;
+    }
+
     .table-cell::before {
         content: attr(data-label);
-        flex: 0 0 40%;
+        flex: none;
         color: var(--brand-strong);
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-align: left;
         text-transform: uppercase;
         white-space: normal;
-    }
-
-    .table-cell--center {
-        text-align: right;
+        opacity: 0.85;
+        display: block;
+        padding-bottom: 0.35rem;
     }
 
     .news-body {

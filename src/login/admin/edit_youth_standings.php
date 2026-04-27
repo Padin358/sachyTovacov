@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             <div>
                 <p class="admin-kicker">Administrace</p>
                 <h1 class="admin-title">Správa mládeže</h1>
-                <p class="admin-subtitle">Jednotný a klidnější vzhled teď drží i editaci mládežnické části, včetně pohodlné práce na mobilu.</p>
+                <p class="admin-subtitle">Správa skupin, jmen hráčů a doprovodných textů mládežnické sekce.</p>
             </div>
             <div class="admin-header__actions">
                 <a href="index.php" class="admin-button admin-button--secondary">Zpět na přehled</a>

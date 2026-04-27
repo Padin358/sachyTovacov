@@ -113,7 +113,7 @@ $galerie = $clanek['galerie'] ?? [];
             <div class="footer-grid">
                 <div>
                     <h3 class="footer-title">Šachy Tovačov</h3>
-                    <p class="footer-text">Šachový klub pro děti, mládež i dospělé hráče, kteří chtějí trénovat, soutěžit a být součástí živého klubu.</p>
+                    <p class="footer-text">Šachový klub pro děti, mládež i dospělé hráče se zaměřením na trénink a účast v soutěžích.</p>
                 </div>
                 <div>
                     <h3 class="footer-title">Rychlé odkazy</h3>
