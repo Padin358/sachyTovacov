@@ -79,7 +79,7 @@ if (isset($_POST['obnova']) && !empty($_FILES['zaloha_zip']['name'])) {
 </head>
 <body class="admin-body">
     <main class="admin-shell">
-        <div class="admin-banner">Poznámka: propis změn do veřejných tabulek může chvíli trvat.</div>
+        <div class="admin-banner">Poznámka: propis změn na veřejný web může chvíli trvat.</div>
 
         <header class="admin-header">
             <div>

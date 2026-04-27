@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 </head>
 <body class="admin-body">
     <main class="admin-shell">
-        <div class="admin-banner">Poznámka: změny v mládežnické sekci se na veřejném webu mohou propsat s malým zpožděním.</div>
+        <div class="admin-banner">Poznámka: propis změn na veřejný web může chvíli trvat.</div>
 
         <header class="admin-header">
             <div>
