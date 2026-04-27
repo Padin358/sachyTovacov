@@ -58,75 +58,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../output.css">
-    <title>Správa mládeže</title>
+    <link rel="stylesheet" href="../../theme.css">
+    <link rel="stylesheet" href="../../admin-theme.css">
+    <title>Šachy Tovačov &raquo; Správa mládeže</title>
 </head>
-<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen p-8">
-    <div class="flex justify-center absolute top-5 left-1/2 -translate-x-1/2">
-        <div class="border border-red-500/50 text-red-400 px-4 py-3 rounded-lg inline-block">
-            Propis změn do tabulky může chvíli trvat.
-        </div>
-    </div>
+<body class="admin-body">
+    <main class="admin-shell">
+        <div class="admin-banner">Poznámka: změny v mládežnické sekci se na veřejném webu mohou propsat s malým zpožděním.</div>
 
-    <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-semibold text-blue-400">Šachy Tovačov &raquo; Správa mládeže</h1>
-        <a href="index.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors font-semibold">Zpět</a>
-    </div>
-
-    <?php if (isset($_GET['success'])): ?>
-        <?php $messages = ['meta' => 'Nastavení sekce bylo úspěšně upraveno.', 'upraven' => 'Jména byla úspěšně upravena.']; ?>
-        <div class="bg-green-700 text-white p-4 rounded-lg mb-6"><?php echo $messages[$_GET['success']] ?? ''; ?></div>
-    <?php endif; ?>
-
-    <div class="bg-[#1d1d1d] p-6 rounded-xl mb-6">
-        <h2 class="text-xl font-semibold mb-4">Nastavení sekce</h2>
-        <form method="POST" class="grid grid-cols-2 gap-4">
-            <input type="hidden" name="action" value="update_meta">
+        <header class="admin-header">
             <div>
-                <label class="block mb-1 text-sm text-gray-400">Losovací kolo</label>
-                <select name="kolo" class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg w-full">
-                    <?php for ($i = 1; $i <= 20; $i++): ?>
-                        <option value="<?php echo $i; ?>" <?php echo $metadata['kolo'] === $i ? 'selected' : ''; ?>><?php echo $i; ?></option>
-                    <?php endfor; ?>
-                </select>
+                <p class="admin-kicker">Administrace</p>
+                <h1 class="admin-title">Správa mládeže</h1>
+                <p class="admin-subtitle">Jednotný a klidnější vzhled teď drží i editaci mládežnické části, včetně pohodlné práce na mobilu.</p>
             </div>
-            <div>
-                <label class="block mb-1 text-sm text-gray-400">Datum</label>
-                <input type="text" name="datum" value="<?php echo htmlspecialchars($metadata['datum']); ?>" class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg w-full">
+            <div class="admin-header__actions">
+                <a href="index.php" class="admin-button admin-button--secondary">Zpět na přehled</a>
             </div>
-            <div class="col-span-2">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Uložit nastavení</button>
-            </div>
-        </form>
-    </div>
+        </header>
 
-    <div class="bg-[#1d1d1d] p-6 rounded-xl">
-        <h2 class="text-xl font-semibold mb-2">Hlavní tabulka</h2>
-        <p class="text-sm text-gray-400 mb-6">Čísla pozic jsou pevná. Tady se upravují pouze jména hráčů.</p>
+        <?php if (isset($_GET['success'])): ?>
+            <?php $messages = ['meta' => 'Nastavení sekce bylo úspěšně upraveno.', 'upraven' => 'Jména byla úspěšně upravena.']; ?>
+            <div class="admin-alert admin-alert--success"><?php echo $messages[$_GET['success']] ?? ''; ?></div>
+        <?php endif; ?>
 
-        <form method="POST" class="space-y-6">
-            <input type="hidden" name="action" value="update_names">
+        <section class="admin-card">
+            <h2 class="admin-section-title">Nastavení sekce</h2>
+            <p class="admin-help">Tady určíte číslo losovacího kola a datum, které se zobrazí na veřejné stránce tabulek.</p>
+            <form method="POST" class="admin-grid admin-grid--2" style="margin-top: 1.2rem;">
+                <input type="hidden" name="action" value="update_meta">
+                <div class="admin-field">
+                    <label class="admin-label" for="kolo">Losovací kolo</label>
+                    <select name="kolo" id="kolo" class="admin-select">
+                        <?php for ($i = 1; $i <= 20; $i++): ?>
+                            <option value="<?php echo $i; ?>" <?php echo $metadata['kolo'] === $i ? 'selected' : ''; ?>><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+                <div class="admin-field">
+                    <label class="admin-label" for="datum">Datum</label>
+                    <input type="text" name="datum" id="datum" value="<?php echo htmlspecialchars($metadata['datum']); ?>" class="admin-input">
+                </div>
+                <div class="admin-actions">
+                    <button type="submit" class="admin-button admin-button--primary">Uložit nastavení</button>
+                </div>
+            </form>
+        </section>
 
-            <?php foreach ($skupiny as $skupinaIndex => $skupina): ?>
-                <section class="border border-[#333] rounded-xl p-4">
-                    <h3 class="text-lg font-semibold mb-4"><?php echo htmlspecialchars($skupina['nazev']); ?></h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <?php foreach ($skupina['hraci'] as $hracIndex => $hrac): ?>
-                            <div>
-                                <label class="block mb-1 text-sm text-gray-400"><?php echo htmlspecialchars($hrac['cislo']); ?>.</label>
-                                <input
-                                    type="text"
-                                    name="jmena[<?php echo $skupinaIndex; ?>][<?php echo $hracIndex; ?>]"
-                                    value="<?php echo htmlspecialchars($hrac['jmeno']); ?>"
-                                    class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg w-full"
-                                >
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                </section>
-            <?php endforeach; ?>
+        <section class="admin-card">
+            <h2 class="admin-section-title">Hlavní tabulka</h2>
+            <p class="admin-help">Čísla pozic jsou pevná. Tady se upravují pouze jména hráčů v jednotlivých skupinách.</p>
 
-            <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Uložit jména</button>
-        </form>
-    </div>
+            <form method="POST" class="admin-grid" style="margin-top: 1.2rem;">
+                <input type="hidden" name="action" value="update_names">
+
+                <?php foreach ($skupiny as $skupinaIndex => $skupina): ?>
+                    <section class="admin-record">
+                        <h3 class="admin-section-title" style="font-size: 1.25rem;"><?php echo htmlspecialchars($skupina['nazev']); ?></h3>
+                        <div class="admin-grid admin-grid--2" style="margin-top: 0.9rem;">
+                            <?php foreach ($skupina['hraci'] as $hracIndex => $hrac): ?>
+                                <div class="admin-field">
+                                    <label class="admin-label" for="jmeno-<?php echo $skupinaIndex . '-' . $hracIndex; ?>"><?php echo htmlspecialchars($hrac['cislo']); ?>.</label>
+                                    <input
+                                        type="text"
+                                        id="jmeno-<?php echo $skupinaIndex . '-' . $hracIndex; ?>"
+                                        name="jmena[<?php echo $skupinaIndex; ?>][<?php echo $hracIndex; ?>]"
+                                        value="<?php echo htmlspecialchars($hrac['jmeno']); ?>"
+                                        class="admin-input"
+                                    >
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                <?php endforeach; ?>
+
+                <div class="admin-actions">
+                    <button type="submit" class="admin-button admin-button--primary">Uložit jména</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

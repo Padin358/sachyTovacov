@@ -12,7 +12,7 @@ function renderTableRows(url, tbodySelector, renderRow) {
 
             data.forEach((item, index) => {
                 const tr = document.createElement('tr');
-                tr.className = index % 2 === 0 ? 'bg-[#111]' : 'bg-[#0d0d0d]';
+                tr.className = 'table-row';
                 tr.innerHTML = renderRow(item);
                 tbody.appendChild(tr);
             });
@@ -21,9 +21,9 @@ function renderTableRows(url, tbodySelector, renderRow) {
 }
 
 renderTableRows('../data_tabulka.json', '#standings-tbody', (clen) => `
-    <td class="border border-[#333] p-2">${clen.jmeno}</td>
-    <td class="border border-[#333] p-2 text-center">${clen.rocnik || '-'}</td>
-    <td class="border border-[#333] p-2 text-center">${clen.elo || '-'}</td>
-    <td class="border border-[#333] p-2 text-center">${clen.elo_r || '-'}</td>
-    <td class="border border-[#333] p-2 text-center">${clen.registrace || '-'}</td>
+    <td class="table-cell" data-label="Jméno hráče">${clen.jmeno}</td>
+    <td class="table-cell table-cell--center" data-label="Ročník">${clen.rocnik || '-'}</td>
+    <td class="table-cell table-cell--center" data-label="ELO">${clen.elo || '-'}</td>
+    <td class="table-cell table-cell--center" data-label="ELO-R">${clen.elo_r || '-'}</td>
+    <td class="table-cell table-cell--center" data-label="Registrace">${clen.registrace || '-'}</td>
 `);

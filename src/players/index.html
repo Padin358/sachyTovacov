@@ -4,46 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
-    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+    <link rel="stylesheet" href="../theme.css">
     <title>Šachy Tovačov &raquo; Hráči</title>
 </head>
-<body class="flex min-h-screen flex-col bg-[#0a0a0a] text-[#dfdfdf]">
-    <header class="">
-        <div class="flex flex-row flex-wrap justify-center gap-5 bg-[#111] p-4 text-lg font-semibold text-[#dfdfdf] md:justify-end">
-            <a href="../" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
-            <a href="../news/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
-            <a href="#" class="after:block after:origin-bottom after:scale-x-100 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
-            <a href="../standings/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
-            <a href="../contact/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
-        </div>
-        <div class="bg-black">
-            <div class="relative flex h-64 w-full items-center justify-center before:absolute before:inset-0 before:bg-[url(./img/header_background.avif)] before:bg-cover before:bg-bottom before:opacity-20">
-                <h1 class="relative z-10 text-3xl font-bold text-[#efefef]" id="main-heading">Šachy Tovačov</h1>
+<body class="site-body">
+    <header class="site-header">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <a href="../" class="brand-mark">
+                    <span class="brand-mark__piece" aria-hidden="true">&#9812;</span>
+                    <span>Šachy Tovačov</span>
+                </a>
+                <nav class="site-nav" aria-label="Hlavní navigace">
+                    <a href="../" class="nav-link">Úvod</a>
+                    <a href="../news/" class="nav-link">Novinky</a>
+                    <a href="./" class="nav-link is-active">Hráči</a>
+                    <a href="../standings/" class="nav-link">Tabulky</a>
+                    <a href="../contact/" class="nav-link">Kontakt</a>
+                </nav>
             </div>
         </div>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="hero-kicker">Lidé za každou partií</p>
+                    <h1 class="hero-title" id="main-heading">Hráči</h1>
+                    <p class="hero-text">Přehled klubových členů, ratingů i registrací v podobě, která je přehledná, živější a dobře čitelná na mobilu i na velké obrazovce.</p>
+                    <div class="hero-badges">
+                        <span class="hero-badge">Soupiska klubu</span>
+                        <span class="hero-badge">ELO a ELO-R</span>
+                        <span class="hero-badge">Aktuální registrace</span>
+                    </div>
+                </div>
+                <div class="hero-piece" aria-hidden="true">&#9816;</div>
+            </div>
+        </section>
     </header>
 
-    <main class="mx-auto max-w-6xl grow px-4 py-8">
-        <section>
-            <h2 class="mb-4 text-2xl font-semibold text-[#efefef]">Tabulka hráčů</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full min-w-[720px] table-fixed border-collapse text-[#dfdfdf]">
+    <main class="page-main">
+        <section class="page-intro">
+            <div>
+                <p class="section-label">Klubová sestava</p>
+                <h2 class="page-title">Soupiska, která ukazuje sílu i pestrost oddílu</h2>
+                <p class="page-lead">Tabulka sdružuje základní informace o hráčích a díky novému stylu už nepůsobí jako temný archiv, ale jako přirozená součást živého klubového webu.</p>
+            </div>
+            <aside class="intro-aside">
+                <p class="intro-aside__label">Přehledně a jednotně</p>
+                <p class="intro-aside__text">I data načítaná z JSONu používají stejné barvy, typografii a rytmus jako zbytek stránek, takže se návštěvník nikde vizuálně neztratí.</p>
+            </aside>
+        </section>
+
+        <section class="surface-card table-card">
+            <div class="table-card__header">
+                <h2 class="card-title">Tabulka hráčů</h2>
+                <p class="card-lead">Aktuální soupisku držíme přehlednou i při větším množství dat, s důrazem na čitelnost jednotlivých řádků.</p>
+            </div>
+            <div class="table-scroll">
+                <table class="standings-table">
                     <thead>
-                        <tr class="bg-[#222]">
-                            <th class="border border-[#333] p-2">Jméno hráče</th>
-                            <th class="border border-[#333] p-2">Ročník</th>
-                            <th class="border border-[#333] p-2">ELO</th>
-                            <th class="border border-[#333] p-2">ELO-R</th>
-                            <th class="border border-[#333] p-2">Registrace</th>
+                        <tr>
+                            <th>Jméno hráče</th>
+                            <th>Ročník</th>
+                            <th>ELO</th>
+                            <th>ELO-R</th>
+                            <th>Registrace</th>
                         </tr>
                     </thead>
                     <tbody id="standings-tbody">
-                        <tr class="bg-[#111]">
-                            <td class="border border-[#333] p-2">V. Klenovský</td>
-                            <td class="border border-[#333] p-2 text-center">1980</td>
-                            <td class="border border-[#333] p-2 text-center">1750</td>
-                            <td class="border border-[#333] p-2 text-center">1750</td>
-                            <td class="border border-[#333] p-2 text-center">-</td>
+                        <tr class="table-row">
+                            <td class="table-cell" data-label="Jméno hráče">V. Klenovský</td>
+                            <td class="table-cell table-cell--center" data-label="Ročník">1980</td>
+                            <td class="table-cell table-cell--center" data-label="ELO">1750</td>
+                            <td class="table-cell table-cell--center" data-label="ELO-R">1750</td>
+                            <td class="table-cell table-cell--center" data-label="Registrace">-</td>
                         </tr>
                     </tbody>
                 </table>
@@ -51,34 +84,32 @@
         </section>
     </main>
 
-    <footer class="mt-auto border-t border-[#333] bg-[#111] py-8">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="mb-6 grid gap-8 md:grid-cols-3">
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Šachy Tovačov</h3>
-                    <p class="text-sm text-gray-400">
-                        Šachový klub pro všechny věkové kategorie a úrovně hráčů.
-                    </p>
+                    <h3 class="footer-title">Šachy Tovačov</h3>
+                    <p class="footer-text">Šachový klub pro děti, mládež i dospělé hráče, kteří chtějí trénovat, soutěžit a být součástí živého klubu.</p>
                 </div>
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Rychlé odkazy</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="../news/" class="text-gray-400 transition-colors hover:text-white">Novinky</a></li>
-                        <li><a href="../players/" class="text-gray-400 transition-colors hover:text-white">Hráči</a></li>
-                        <li><a href="../standings/" class="text-gray-400 transition-colors hover:text-white">Tabulky</a></li>
-                        <li><a href="../contact/" class="text-gray-400 transition-colors hover:text-white">Kontakt</a></li>
-                    </ul>
+                    <h3 class="footer-title">Rychlé odkazy</h3>
+                    <div class="footer-links">
+                        <a href="../news/">Novinky</a>
+                        <a href="../players/">Hráči</a>
+                        <a href="../standings/">Tabulky</a>
+                        <a href="../contact/">Kontakt</a>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Kontakt</h3>
-                    <p class="mb-1 text-sm text-gray-400">Email: email@email.email</p>
-                    <p class="text-sm text-gray-400">Tel: +420 123 456 789</p>
+                    <h3 class="footer-title">Kontakt</h3>
+                    <p class="footer-text">Email: <a href="mailto:calajiri@seznam.cz">calajiri@seznam.cz</a></p>
+                    <p class="footer-text">Telefon: <a href="tel:+420608618163">+420 608 618 163</a></p>
                 </div>
             </div>
-            <div class="flex flex-row flex-wrap justify-center gap-4 border-t border-[#333] pt-6 text-center text-sm text-gray-500 md:justify-between">
-                <p class="">Website created by RV + MZ with love</p>
-                <p class="block md:absolute md:left-1/2 md:-translate-x-1/2">&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
-                <a href="../login/" class="hover:underline">Admin-Panel</a>
+            <div class="footer-bottom">
+                <p>Website created by RV + MZ with care.</p>
+                <p>&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
+                <a href="mailto:calajiri@seznam.cz">Napište nám</a>
             </div>
         </div>
     </footer>

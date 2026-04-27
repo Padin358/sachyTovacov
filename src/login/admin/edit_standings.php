@@ -16,6 +16,14 @@ $fields = [
     'registrace' => '',
 ];
 
+$fieldLabels = [
+    'jmeno' => 'Jméno',
+    'rocnik' => 'Ročník',
+    'elo' => 'ELO',
+    'elo_r' => 'ELO-R',
+    'registrace' => 'Registrace',
+];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if ($_POST['action'] === 'update') {
         $index = (int)$_POST['index'];
@@ -59,122 +67,139 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../output.css">
-    <title>Správa hráčů</title>
+    <link rel="stylesheet" href="../../theme.css">
+    <link rel="stylesheet" href="../../admin-theme.css">
+    <title>Šachy Tovačov &raquo; Správa hráčů</title>
 </head>
-<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen p-8">
-    <div class="flex justify-center absolute top-5 left-1/2 -translate-x-1/2">
-        <div class="border border-red-500/50 text-red-400 px-4 py-3 rounded-lg inline-block">
-            Propis změn do tabulky může chvíli trvat.
+<body class="admin-body">
+    <main class="admin-shell">
+        <div class="admin-banner">Poznámka: propis změn do veřejné tabulky může chvíli trvat.</div>
+
+        <header class="admin-header">
+            <div>
+                <p class="admin-kicker">Administrace</p>
+                <h1 class="admin-title">Správa hráčů</h1>
+                <p class="admin-subtitle">Soupiska je nově upravitelná v klidnějším, čitelnějším a plně responzivním rozhraní.</p>
+            </div>
+            <div class="admin-header__actions">
+                <a href="index.php" class="admin-button admin-button--secondary">Zpět na přehled</a>
+            </div>
+        </header>
+
+        <?php if (isset($_GET['success'])): ?>
+            <?php $messages = ['upraven' => 'Hráč byl úspěšně upraven.', 'pridan' => 'Hráč byl úspěšně přidán.', 'odebran' => 'Hráč byl úspěšně odebrán.']; ?>
+            <div class="admin-alert admin-alert--success"><?php echo $messages[$_GET['success']] ?? ''; ?></div>
+        <?php endif; ?>
+
+        <div class="admin-tabs">
+            <button type="button" id="tab-upravit" class="admin-tab is-active" onclick="switchTab('upravit')">Upravit hráče</button>
+            <button type="button" id="tab-pridat" class="admin-tab" onclick="switchTab('pridat')">Přidat hráče</button>
         </div>
-    </div>
 
-    <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-semibold text-blue-400">Šachy Tovačov &raquo; Správa hráčů</h1>
-        <a href="index.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors font-semibold">Zpět</a>
-    </div>
+        <section id="tab-content-upravit" class="admin-card">
+            <div class="admin-select-list">
+                <label for="hracSelect" class="admin-label">Vyber hráče</label>
+                <select id="hracSelect" class="admin-select">
+                    <?php foreach ($data as $i => $hrac): ?>
+                        <option value="<?php echo $i; ?>"><?php echo htmlspecialchars($hrac['jmeno']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-    <?php if (isset($_GET['success'])): ?>
-        <?php $messages = ['upraven' => 'Hráč byl úspěšně upraven.', 'pridan' => 'Hráč byl úspěšně přidán.', 'odebran' => 'Hráč byl úspěšně odebrán.']; ?>
-        <div class="bg-green-700 text-white p-4 rounded-lg mb-6"><?php echo $messages[$_GET['success']] ?? ''; ?></div>
-    <?php endif; ?>
-
-    <div class="flex gap-2 mb-6">
-        <button onclick="switchTab('upravit')" id="tab-upravit" class="tab-btn bg-blue-500 hover:bg-blue-600 transition-colors px-4 py-2 rounded-lg font-semibold cursor-pointer">Upravit hráče</button>
-        <button onclick="switchTab('pridat')" id="tab-pridat" class="tab-btn bg-[#2d2d2d] hover:bg-[#3d3d3d] px-4 py-2 rounded-lg font-semibold transition-colors cursor-pointer">Přidat hráče</button>
-    </div>
-
-    <div id="tab-content-upravit" class="bg-[#1d1d1d] p-6 rounded-xl">
-        <label class="block mb-2 font-semibold">Vyber hráče:</label>
-        <select id="hracSelect" class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg mb-6 w-full cursor-pointer">
             <?php foreach ($data as $i => $hrac): ?>
-                <option value="<?php echo $i; ?>"><?php echo htmlspecialchars($hrac['jmeno']); ?></option>
+                <form method="POST" class="hrac-form <?php echo $i !== 0 ? 'hidden' : ''; ?>" data-index="<?php echo $i; ?>">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="index" value="<?php echo $i; ?>">
+                    <div class="admin-grid admin-grid--2">
+                        <?php foreach ($fields as $key => $default): ?>
+                            <div class="admin-field">
+                                <label class="admin-label" for="<?php echo $key . '-' . $i; ?>"><?php echo $fieldLabels[$key]; ?></label>
+                                <input
+                                    type="text"
+                                    id="<?php echo $key . '-' . $i; ?>"
+                                    name="<?php echo $key; ?>"
+                                    value="<?php echo htmlspecialchars($hrac[$key] ?? $default); ?>"
+                                    class="admin-input"
+                                >
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="admin-actions" style="margin-top: 1.25rem;">
+                        <button type="submit" class="admin-button admin-button--primary">Uložit změny</button>
+                        <button type="button" class="admin-button admin-button--danger" onclick="confirmDelete(<?php echo $i; ?>, '<?php echo htmlspecialchars($hrac['jmeno'], ENT_QUOTES); ?>')">Odebrat hráče</button>
+                    </div>
+                </form>
             <?php endforeach; ?>
-        </select>
+        </section>
 
-        <?php foreach ($data as $i => $hrac): ?>
-        <form method="POST" class="hrac-form <?php echo $i !== 0 ? 'hidden' : ''; ?>" data-index="<?php echo $i; ?>">
-            <input type="hidden" name="action" value="update">
-            <input type="hidden" name="index" value="<?php echo $i; ?>">
-            <div class="grid grid-cols-2 gap-4">
-                <?php foreach ($fields as $key => $default): ?>
-                <div>
-                    <label class="block mb-1 text-sm text-gray-400"><?php echo $key; ?></label>
-                    <input type="text" name="<?php echo $key; ?>" value="<?php echo htmlspecialchars($hrac[$key] ?? $default); ?>"
-                        class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg w-full">
+        <section id="tab-content-pridat" class="admin-card hidden">
+            <form method="POST">
+                <input type="hidden" name="action" value="add">
+                <div class="admin-grid admin-grid--2">
+                    <?php foreach ($fields as $key => $default): ?>
+                        <div class="admin-field">
+                            <label class="admin-label" for="<?php echo 'new-' . $key; ?>"><?php echo $fieldLabels[$key]; ?></label>
+                            <input
+                                type="text"
+                                id="<?php echo 'new-' . $key; ?>"
+                                name="<?php echo $key; ?>"
+                                value="<?php echo htmlspecialchars((string)$default); ?>"
+                                class="admin-input"
+                            >
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="flex gap-3 mt-6">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Uložit</button>
-                <button type="button" onclick="confirmDelete(<?php echo $i; ?>, '<?php echo htmlspecialchars($hrac['jmeno'], ENT_QUOTES); ?>')"
-                    class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Odebrat hráče</button>
-            </div>
-        </form>
-        <?php endforeach; ?>
-    </div>
-
-    <div id="tab-content-pridat" class="bg-[#1d1d1d] p-6 rounded-xl hidden">
-        <form method="POST">
-            <input type="hidden" name="action" value="add">
-            <div class="grid grid-cols-2 gap-4">
-                <?php foreach ($fields as $key => $default): ?>
-                <div>
-                    <label class="block mb-1 text-sm text-gray-400"><?php echo $key; ?></label>
-                    <input type="text" name="<?php echo $key; ?>" value="<?php echo htmlspecialchars((string)$default); ?>"
-                        class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg w-full">
+                <div class="admin-actions" style="margin-top: 1.25rem;">
+                    <button type="submit" class="admin-button admin-button--primary">Přidat hráče</button>
                 </div>
-                <?php endforeach; ?>
-            </div>
-            <button type="submit" class="mt-6 bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Přidat hráče</button>
-        </form>
-    </div>
+            </form>
+        </section>
+    </main>
 
-    <div class="fixed top-0 left-0 h-full w-full bg-black/70 hidden" id="deletePopup">
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1d1d1d] p-6 rounded-lg flex flex-col gap-5 items-center">
-            <p class="text-xl">Opravdu chcete odebrat hráče <strong id="deleteJmeno"></strong>?</p>
-            <div class="flex gap-3">
+    <div class="admin-modal hidden" id="deletePopup">
+        <div class="admin-modal__dialog">
+            <p class="admin-modal__title">Odebrat hráče</p>
+            <p class="admin-help">Opravdu chcete odebrat hráče <strong id="deleteJmeno"></strong>?</p>
+            <div class="admin-modal__actions">
                 <form method="POST" id="deleteForm">
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="index" id="deleteIndex">
-                    <button type="submit" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Odebrat</button>
+                    <button type="submit" class="admin-button admin-button--danger">Odebrat</button>
                 </form>
-                <button onclick="document.getElementById('deletePopup').classList.add('hidden')"
-                    class="bg-[#2d2d2d] hover:bg-[#3d3d3d] px-6 py-2 rounded-lg transition-colors font-semibold cursor-pointer">Zrušit</button>
+                <button type="button" class="admin-button admin-button--secondary" onclick="document.getElementById('deletePopup').classList.add('hidden')">Zrušit</button>
             </div>
         </div>
     </div>
 
     <script>
-        const select = document.getElementById('hracSelect')
-        const forms = document.querySelectorAll('.hrac-form')
+        const select = document.getElementById('hracSelect');
+        const forms = document.querySelectorAll('.hrac-form');
 
         if (select) {
             select.addEventListener('change', () => {
-                forms.forEach(form => form.classList.add('hidden'))
-                document.querySelector(`.hrac-form[data-index="${select.value}"]`).classList.remove('hidden')
-            })
+                forms.forEach((form) => form.classList.add('hidden'));
+                document.querySelector(`.hrac-form[data-index="${select.value}"]`).classList.remove('hidden');
+            });
         }
 
         function switchTab(tab) {
-            document.getElementById('tab-content-upravit').classList.add('hidden')
-            document.getElementById('tab-content-pridat').classList.add('hidden')
-            document.getElementById('tab-content-' + tab).classList.remove('hidden')
-
-            document.getElementById('tab-upravit').className = 'tab-btn px-4 py-2 rounded-lg font-semibold transition-colors cursor-pointer ' + (tab === 'upravit' ? 'bg-blue-500' : 'bg-[#2d2d2d] hover:bg-[#3d3d3d]')
-            document.getElementById('tab-pridat').className = 'tab-btn px-4 py-2 rounded-lg font-semibold transition-colors cursor-pointer ' + (tab === 'pridat' ? 'bg-blue-500' : 'bg-[#2d2d2d] hover:bg-[#3d3d3d]')
+            document.getElementById('tab-content-upravit').classList.toggle('hidden', tab !== 'upravit');
+            document.getElementById('tab-content-pridat').classList.toggle('hidden', tab !== 'pridat');
+            document.getElementById('tab-upravit').classList.toggle('is-active', tab === 'upravit');
+            document.getElementById('tab-pridat').classList.toggle('is-active', tab === 'pridat');
         }
 
         function confirmDelete(index, jmeno) {
-            document.getElementById('deleteIndex').value = index
-            document.getElementById('deleteJmeno').textContent = jmeno
-            document.getElementById('deletePopup').classList.remove('hidden')
+            document.getElementById('deleteIndex').value = index;
+            document.getElementById('deleteJmeno').textContent = jmeno;
+            document.getElementById('deletePopup').classList.remove('hidden');
         }
 
-        document.getElementById('deletePopup').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('deletePopup')) {
-                document.getElementById('deletePopup').classList.add('hidden')
+        document.getElementById('deletePopup').addEventListener('click', (event) => {
+            if (event.target === document.getElementById('deletePopup')) {
+                document.getElementById('deletePopup').classList.add('hidden');
             }
-        })
+        });
     </script>
 </body>
 </html>

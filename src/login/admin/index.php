@@ -72,104 +72,121 @@ if (isset($_POST['obnova']) && !empty($_FILES['zaloha_zip']['name'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../output.css">
-    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../../theme.css">
+    <link rel="stylesheet" href="../../admin-theme.css">
+    <title>Šachy Tovačov &raquo; Administrace</title>
 </head>
-<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen p-8">
-<div class="flex justify-center absolute top-5 left-1/2 -translate-x-1/2">
-    <div class="border border-red-500/50 text-red-400 px-4 py-3 rounded-lg inline-block">
-        ⚠️ Propis změn do tabulky může chvíli trvat.
-    </div>
-</div>
+<body class="admin-body">
+    <main class="admin-shell">
+        <div class="admin-banner">Poznámka: propis změn do veřejných tabulek může chvíli trvat.</div>
 
-<div class="">
-    <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-semibold text-blue-400">Šachy Tovačov &raquo; Admin Panel</h1>
-        <button class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold js-toggle-popup cursor-pointer">Odhlásit se</button>
-    </div>
-
-    <div class="bg-[#1d1d1d] p-6 rounded-xl">
-        <h2 class="text-xl font-semibold mb-4">Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
-        <p>Toto je admin panel. Zde můžete spravovat obsah webu.</p>
-
-        <div class="mt-16">
-            <p class="text-xl">Prosím, vyberte co chcete upravit:</p>
-            <div class="flex flex-row flex-wrap justify-start gap-10 p-3">
-                <a href="edit_standings.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold">Tabulka hráčů</a>
-                <a href="edit_youth_standings.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold">Mládež</a>
-                <a href="edit_news.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold">Novinky</a>
+        <header class="admin-header">
+            <div>
+                <p class="admin-kicker">Správa obsahu</p>
+                <h1 class="admin-title">Administrace Šachy Tovačov</h1>
+                <p class="admin-subtitle">Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>. Odtud můžete spravovat články, soupisku i mládežnickou sekci, a zároveň pohodlně zálohovat data.</p>
             </div>
-        </div>
+            <div class="admin-header__actions">
+                <a href="../../" class="admin-button admin-button--ghost">Veřejný web</a>
+                <button type="button" class="admin-button admin-button--danger js-toggle-popup">Odhlásit se</button>
+            </div>
+        </header>
 
-        <div class="mt-8 pt-8 border-t border-[#333]">
-            <p class="text-xl mb-3">Záloha dat:</p>
+        <section class="admin-card">
+            <h2 class="admin-section-title">Co chcete upravit</h2>
+            <p class="admin-help">Všechny administrativní sekce teď používají stejný klidnější design a skládají se korektně i na menších displejích.</p>
+            <div class="admin-quicklinks" style="margin-top: 1.25rem;">
+                <a href="edit_standings.php" class="admin-quicklink">
+                    <p class="admin-quicklink__title">Tabulka hráčů</p>
+                    <p class="admin-quicklink__text">Uprava soupisky, ratingů a registračních údajů.</p>
+                </a>
+                <a href="edit_youth_standings.php" class="admin-quicklink">
+                    <p class="admin-quicklink__title">Mládež</p>
+                    <p class="admin-quicklink__text">Skupiny, jména hráčů i metadata sekce.</p>
+                </a>
+                <a href="edit_news.php" class="admin-quicklink">
+                    <p class="admin-quicklink__title">Novinky</p>
+                    <p class="admin-quicklink__text">Články, hlavní obrázky a fotogalerie.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="admin-card">
+            <h2 class="admin-section-title">Záloha dat</h2>
+            <p class="admin-help">Stáhněte si aktuální data nebo obnovte obsah z připraveného ZIP archivu s JSON soubory.</p>
 
             <?php if ($obnova_success): ?>
-            <div class="bg-green-700 text-white p-4 rounded-lg mb-4">Záloha byla úspěšně obnovena.</div>
-            <?php endif; ?>
-            <?php if ($obnova_error): ?>
-            <div class="bg-red-700 text-white p-4 rounded-lg mb-4">Chyba: <?php echo htmlspecialchars($obnova_error); ?></div>
+                <div class="admin-alert admin-alert--success">Záloha byla úspěšně obnovena.</div>
             <?php endif; ?>
 
-            <div class="flex flex-row flex-wrap gap-10 items-start">
-                <div>
-                    <p class="text-sm text-gray-400 mb-2">Stáhnout aktuální zálohu:</p>
-                    <form method="POST">
-                        <button type="submit" name="zaloha" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold cursor-pointer">
-                            ⬇️ Stáhnout zálohu
-                        </button>
+            <?php if ($obnova_error): ?>
+                <div class="admin-alert admin-alert--error">Chyba: <?php echo htmlspecialchars($obnova_error); ?></div>
+            <?php endif; ?>
+
+            <div class="admin-grid admin-grid--2" style="margin-top: 1.25rem;">
+                <div class="admin-record">
+                    <p class="admin-label">Stažení</p>
+                    <p class="admin-help">Vytvoří se archiv s aktuálními daty novinek, tabulky hráčů a mládeže.</p>
+                    <form method="POST" style="margin-top: 1rem;">
+                        <button type="submit" name="zaloha" class="admin-button admin-button--primary">Stáhnout zálohu</button>
                     </form>
                 </div>
 
-                <div>
-                    <p class="text-sm text-gray-400 mb-2">Obnovit ze zálohy:</p>
-                    <form method="POST" enctype="multipart/form-data">
-                        <div class="flex gap-2 items-center">
-                            <input type="file" name="zaloha_zip" accept=".zip" id="zaloha-input" class="bg-[#2d2d2d] text-[#dfdfdf] px-4 py-2 rounded-lg">
-                            <button type="button" onclick="document.getElementById('zaloha-input').value = ''" class="bg-[#2d2d2d] hover:bg-[#3d3d3d] px-3 py-2 rounded-lg transition-colors text-sm cursor-pointer whitespace-nowrap">Zrušit výběr</button>
-                            <button type="submit" name="obnova" onclick="return confirm('Opravdu chcete obnovit zálohu? Aktuální data budou přepsána!')" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold cursor-pointer whitespace-nowrap">
-                                ⬆️ Obnovit zálohu
-                            </button>
+                <div class="admin-record">
+                    <p class="admin-label">Obnova</p>
+                    <p class="admin-help">Nahrajte ZIP se stejnou strukturou souborů. Původní data budou přepsána.</p>
+                    <form method="POST" enctype="multipart/form-data" style="margin-top: 1rem;" class="admin-grid">
+                        <div class="admin-field">
+                            <label for="zaloha-input" class="admin-label">ZIP archiv</label>
+                            <input type="file" name="zaloha_zip" accept=".zip" id="zaloha-input" class="admin-file">
+                        </div>
+                        <div class="admin-actions">
+                            <button type="button" onclick="document.getElementById('zaloha-input').value = ''" class="admin-button admin-button--secondary">Zrušit výběr</button>
+                            <button type="submit" name="obnova" onclick="return confirm('Opravdu chcete obnovit zálohu? Aktuální data budou přepsána.')" class="admin-button admin-button--primary">Obnovit zálohu</button>
                         </div>
                     </form>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <div class="admin-modal hidden" id="logoutPopup">
+        <div class="admin-modal__dialog">
+            <p class="admin-modal__title">Opravdu se chcete odhlásit?</p>
+            <p class="admin-help">Po odhlášení se vrátíte na přihlašovací obrazovku administrace.</p>
+            <div class="admin-modal__actions">
+                <a href="logout.php" class="admin-button admin-button--danger">Odhlásit</a>
+                <button type="button" class="admin-button admin-button--secondary js-toggle-popup">Zůstat přihlášený</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="fixed top-0 left-0 h-full w-full bg-black/70 hidden transition-all" id="logoutPopup">
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1d1d1d] p-3 rounded-lg flex flex-col justify-center gap-5 items-center">
-        <button class="text-red-600 absolute top-1 right-1 cursor-pointer hover:text-red-700 transition-colors js-toggle-popup"><i class="fa-solid fa-x text-xl"></i></button>
-        <p class="text-xl m-3">Opravdu se chcete odhlásit?</p>
-        <a href="logout.php" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors text-[#dfdfdf] font-semibold">Odhlásit</a>
-    </div>
-</div>
+    <script>
+        const toggleButtons = document.querySelectorAll('.js-toggle-popup');
+        const logoutPopup = document.getElementById('logoutPopup');
 
-<script>
-    const toggleButtons = document.querySelectorAll(".js-toggle-popup")
-    const logoutPopup = document.getElementById("logoutPopup")
+        const toggleLogoutPopup = () => {
+            logoutPopup.classList.toggle('hidden');
+        };
 
-    const logoutPopupFunction = () => {
-        logoutPopup.classList.toggle("hidden")
-    }
+        toggleButtons.forEach((button) => {
+            button.addEventListener('click', toggleLogoutPopup);
+        });
 
-    toggleButtons.forEach(button => {
-        button.addEventListener("click", logoutPopupFunction)
-    })
+        logoutPopup.addEventListener('click', (event) => {
+            if (event.target === logoutPopup) {
+                toggleLogoutPopup();
+            }
+        });
 
-    logoutPopup.addEventListener("click", (e) => {
-        if (e.target === logoutPopup) logoutPopupFunction()
-    })
-
-    document.getElementById('zaloha-input').addEventListener('change', () => {
-        const file = document.getElementById('zaloha-input').files[0]
-        if (file && file.type !== 'application/zip' && !file.name.endsWith('.zip')) {
-            alert('Lze nahrát pouze ZIP archiv.')
-            document.getElementById('zaloha-input').value = ''
-        }
-    })
-</script>
+        document.getElementById('zaloha-input').addEventListener('change', () => {
+            const file = document.getElementById('zaloha-input').files[0];
+            if (file && file.type !== 'application/zip' && !file.name.endsWith('.zip')) {
+                alert('Lze nahrát pouze ZIP archiv.');
+                document.getElementById('zaloha-input').value = '';
+            }
+        });
+    </script>
 </body>
 </html>

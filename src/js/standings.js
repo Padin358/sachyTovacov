@@ -15,7 +15,7 @@ fetch('../data_mladez.json')
 
             (data.skupiny || []).forEach((skupina, index) => {
                 const tr = document.createElement('tr');
-                tr.className = index % 2 === 0 ? 'bg-[#111]' : 'bg-[#0d0d0d]';
+                tr.className = 'table-row';
 
                 const players = [0, 1, 2, 3].map((playerIndex) => {
                     const hrac = skupina.hraci?.[playerIndex];
@@ -23,11 +23,11 @@ fetch('../data_mladez.json')
                 });
 
                 tr.innerHTML = `
-                    <td class="border border-[#333] p-2 font-semibold">${skupina.nazev}</td>
-                    <td class="border border-[#333] p-2">${players[0]}</td>
-                    <td class="border border-[#333] p-2">${players[1]}</td>
-                    <td class="border border-[#333] p-2">${players[2]}</td>
-                    <td class="border border-[#333] p-2">${players[3]}</td>
+                    <td class="table-cell" data-label="Skupina">${skupina.nazev}</td>
+                    <td class="table-cell" data-label="1">${players[0]}</td>
+                    <td class="table-cell" data-label="2">${players[1]}</td>
+                    <td class="table-cell" data-label="3">${players[2]}</td>
+                    <td class="table-cell" data-label="4">${players[3]}</td>
                 `;
 
                 tbody.appendChild(tr);
@@ -38,7 +38,7 @@ fetch('../data_mladez.json')
             textList.innerHTML = '';
             (data.doprovodny_text || []).forEach((text) => {
                 const li = document.createElement('li');
-                li.className = 'text-gray-300';
+                li.className = 'note-item';
                 li.textContent = text;
                 textList.appendChild(li);
             });
@@ -49,17 +49,17 @@ fetch('../data_mladez.json')
 
             (data.rozpisy || []).forEach((rozpis) => {
                 const section = document.createElement('section');
-                section.className = 'mt-8';
+                section.className = 'schedule-card';
                 section.innerHTML = `
-                    <h3 class="text-xl font-semibold mb-3 text-[#efefef]">${rozpis.nazev}</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full border-collapse text-[#dfdfdf]">
+                    <h3 class="card-title">${rozpis.nazev}</h3>
+                    <div class="table-scroll">
+                        <table class="standings-table">
                             <tbody>
-                                ${(rozpis.radky || []).map((radek, index) => `
-                                    <tr class="${index % 2 === 0 ? 'bg-[#111]' : 'bg-[#0d0d0d]'}">
-                                        <td class="border border-[#333] p-2 font-semibold">${radek.kolo}</td>
-                                        <td class="border border-[#333] p-2 text-center">${radek.zapasy?.[0] || '-'}</td>
-                                        <td class="border border-[#333] p-2 text-center">${radek.zapasy?.[1] || '-'}</td>
+                                ${(rozpis.radky || []).map((radek) => `
+                                    <tr class="table-row">
+                                        <td class="table-cell" data-label="Kolo">${radek.kolo}</td>
+                                        <td class="table-cell table-cell--center" data-label="Zápas 1">${radek.zapasy?.[0] || '-'}</td>
+                                        <td class="table-cell table-cell--center" data-label="Zápas 2">${radek.zapasy?.[1] || '-'}</td>
                                     </tr>
                                 `).join('')}
                             </tbody>

@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// Hard-coded credentials
 $correct_username = password_hash('admin', PASSWORD_DEFAULT);
-$correct_password_hash = password_hash('heslo123', PASSWORD_DEFAULT); // Změň heslo!
+$correct_password_hash = password_hash('heslo123', PASSWORD_DEFAULT);
 
-// Pokud je už přihlášený, přesměruj do admin panelu
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     header('Location: admin/');
     exit;
@@ -16,16 +14,15 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    
-    // Ověření přihlašovacích údajů
+
     if (password_verify($username, $correct_username) && password_verify($password, $correct_password_hash)) {
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $username;
         header('Location: admin/');
         exit;
-    } else {
-        $error = 'Nesprávné přihlašovací jméno nebo heslo!';
     }
+
+    $error = 'Nesprávné přihlašovací jméno nebo heslo.';
 }
 ?>
 <!DOCTYPE html>
@@ -34,58 +31,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Šachy Tovačov &raquo; Úvod</title>
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="stylesheet" href="../admin-theme.css">
+    <title>Šachy Tovačov &raquo; Přihlášení do administrace</title>
 </head>
-<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen flex flex-col justify-center items-center">
-    <h1 class="text-3xl font-semibold text-center mt-8">Šachy Tovačov &raquo; Admin Panel</h1>
-    <section class="w-lg h-3xl bg-[#1d1d1d] mt-12 p-3 rounded-xl">
-        <h2 class="font-semibold text-xl">Přihlášení</h2>
-        
-        <?php if ($error): ?>
-            <div class="bg-red-900 text-red-200 p-3 rounded-md mt-3">
-                <?php echo htmlspecialchars($error); ?>
-            </div>
-        <?php endif; ?>
-        
-        <form method="POST" action="" class="flex flex-col justify-center gap-5 p-3">
-            <div class="flex flex-row flex-wrap justify-evenly gap-5">
-                <div class="flex flex-col justify-center items-center">
-                <i class="fa-solid fa-user"></i>
+<body class="admin-body">
+    <main class="admin-login-shell">
+        <section class="admin-login-card">
+            <p class="admin-kicker">Administrace klubu</p>
+            <h1 class="admin-title">Přihlášení</h1>
+            <p class="admin-subtitle">Klidnější, responzivní a typograficky sladěná administrace pro správu novinek, hráčů a mládežnických tabulek.</p>
+
+            <?php if ($error): ?>
+                <div class="admin-alert admin-alert--error"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+
+            <form method="POST" action="" class="admin-grid" style="margin-top: 1.35rem;">
+                <div class="admin-field">
+                    <label for="username-input" class="admin-label">Uživatelské jméno</label>
+                    <input type="text" name="username" id="username-input" required class="admin-input">
                 </div>
-                <input type="text" name="username" id="username-input" required class="cursor-pointer bg-[#2d2d2d] p-1 rounded-md hover:bg-[#393939] transition-colors duration-all flex-grow">
-            </div>
-            <div class="flex flex-row flex-wrap justify-evenly gap-5 relative">
-                <div class="flex flex-col justify-center items-center">
-                <i class="fa-solid fa-lock"></i>
+
+                <div class="admin-field">
+                    <label for="password-input" class="admin-label">Heslo</label>
+                    <div class="admin-file-row">
+                        <input type="password" name="password" id="password-input" required class="admin-input">
+                        <button type="button" id="toggle-password" class="admin-button admin-button--secondary">Zobrazit heslo</button>
+                    </div>
                 </div>
-                <input type="password" name="password" id="password-input" required class="cursor-pointer bg-[#2d2d2d] p-1 pr-10 rounded-md hover:bg-[#393939] transition-colors duration-all flex-grow">
-                <button type="button" id="toggle-password" class="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors cursor-pointer">
-                    <svg id="eye-closed" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>
-                    </svg>
-                    <svg id="eye-open" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                    </svg>
-                </button>
-            </div>
-            <input type="submit" value="Přihlásit se" class="text-lg cursor-pointer bg-[#2d2d2d] p-2 rounded-lg hover:bg-[#393939] transition-colors duration-all">
-        </form>
-    </section>
-<script>
-    const togglePassword = document.getElementById('toggle-password');
-    const passwordInput = document.getElementById('password-input');
-    const eyeClosed = document.getElementById('eye-closed');
-    const eyeOpen = document.getElementById('eye-open');
-    
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        
-        eyeClosed.classList.toggle('hidden');
-        eyeOpen.classList.toggle('hidden');
-    });
-</script>
+
+                <div class="admin-actions" style="margin-top: 0.35rem;">
+                    <button type="submit" class="admin-button admin-button--primary">Přihlásit se</button>
+                    <a href="../" class="admin-button admin-button--ghost">Zpět na web</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordInput = document.getElementById('password-input');
+
+        togglePassword.addEventListener('click', () => {
+            const showPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', showPassword ? 'text' : 'password');
+            togglePassword.textContent = showPassword ? 'Skrýt heslo' : 'Zobrazit heslo';
+        });
+    </script>
 </body>
 </html>

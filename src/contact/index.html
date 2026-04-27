@@ -4,119 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
-    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+    <link rel="stylesheet" href="../theme.css">
     <title>Šachy Tovačov &raquo; Kontakt</title>
 </head>
-<body class="bg-[#0a0a0a] text-[#dfdfdf] min-h-screen flex flex-col">
-    <header class="">
-        <div class="p-4 bg-[#111] flex flex-row flex-wrap justify-center md:justify-end gap-5 text-[#dfdfdf] font-semibold text-lg">
-            <a href="../" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
-            <a href="../news/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
-            <a href="../players/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
-            <a href="../standings/" class="after:block after:border-b-2 after:scale-x-0 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
-            <a href="#" class="after:block after:border-b-2 after:scale-x-100 after:origin-bottom after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
-        </div>
-        <div class="bg-black">
-            <div class="relative w-full h-64 flex items-center justify-center before:absolute before:inset-0 before:bg-[url(./img/header_background.avif)] before:bg-cover before:bg-bottom before:opacity-20">
-                <h1 class="relative text-3xl font-bold text-[#efefef] z-10" id="main-heading">Šachy Tovačov</h1>
+<body class="site-body">
+    <header class="site-header">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <a href="../" class="brand-mark">
+                    <span class="brand-mark__piece" aria-hidden="true">&#9812;</span>
+                    <span>Šachy Tovačov</span>
+                </a>
+                <nav class="site-nav" aria-label="Hlavní navigace">
+                    <a href="../" class="nav-link">Úvod</a>
+                    <a href="../news/" class="nav-link">Novinky</a>
+                    <a href="../players/" class="nav-link">Hráči</a>
+                    <a href="../standings/" class="nav-link">Tabulky</a>
+                    <a href="./" class="nav-link is-active">Kontakt</a>
+                </nav>
             </div>
         </div>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="hero-kicker">Spojme se</p>
+                    <h1 class="hero-title" id="main-heading">Kontakt</h1>
+                    <p class="hero-text">Klubovna, email i mapa na jednom místě. Kontaktní stránka teď působí otevřeněji, světleji a víc zve k návštěvě.</p>
+                    <div class="hero-badges">
+                        <span class="hero-badge">Klubovna v Tovačově</span>
+                        <span class="hero-badge">Rychlý kontakt</span>
+                        <span class="hero-badge">Užitečné odkazy</span>
+                    </div>
+                </div>
+                <div class="hero-piece" aria-hidden="true">&#9815;</div>
+            </div>
+        </section>
     </header>
-    
-    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow">
-        <!-- Kontaktní informace -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-8 text-[#efefef]">Kontakt</h2>
-            
-            <div class="bg-[#111] p-8 rounded-lg mb-8">
-                <h3 class="text-xl font-semibold mb-6 text-[#efefef]">Kontaktní údaje</h3>
-                
-                <div class="grid md:grid-cols-3 gap-6">
+
+    <main class="page-main">
+        <section class="page-intro">
+            <div>
+                <p class="section-label">Kudy k nám</p>
+                <h2 class="page-title">Najděte cestu ke klubovně i k lidem, kteří za klubem stojí</h2>
+                <p class="page-lead">Ať už chcete přijít na schůzku, zeptat se na členské informace nebo se jen ozvat, všechno důležité najdete přehledně na jednom místě.</p>
+            </div>
+            <aside class="intro-aside">
+                <p class="intro-aside__label">První krok</p>
+                <p class="intro-aside__text">Nejjednodušší je napsat nebo zavolat. Pak už zbývá jen dorazit ke klubovně a posadit se k první partii.</p>
+            </aside>
+        </section>
+
+        <div class="stack-lg">
+            <section class="contact-grid">
+                <article class="contact-card">
+                    <p class="contact-label">Email</p>
+                    <p class="contact-value"><a href="mailto:calajiri@seznam.cz" class="contact-link">calajiri@seznam.cz</a></p>
+                </article>
+                <article class="contact-card">
+                    <p class="contact-label">Telefon</p>
+                    <p class="contact-value"><a href="tel:+420608618163" class="contact-link">+420 608 618 163</a></p>
+                </article>
+                <article class="contact-card">
+                    <p class="contact-label">Adresa klubovny</p>
+                    <p class="contact-value">Nádražní 658<br>Tovačov</p>
+                </article>
+            </section>
+
+            <section>
+                <div class="section-heading-block">
                     <div>
-                        <p class="text-gray-400 text-sm mb-2">Email</p>
-                        <a href="#" class="text-lg hover:text-blue-400 transition-colors">email@email.cz</a>
-                    </div>
-                    
-                    <div>
-                        <p class="text-gray-400 text-sm mb-2">Telefon</p>
-                        <a href="#" class="text-lg hover:text-blue-400 transition-colors">+420 123 456 789</a>
-                    </div>
-                    
-                    <div>
-                        <p class="text-gray-400 text-sm mb-2">Adresa klubovny</p>
-                        <p class="text-lg">Nádražní 658</p>
-                        <p class="text-gray-300">Tovačov</p>
+                        <p class="section-label">Mapa</p>
+                        <h3 class="page-title">Kde nás najdete</h3>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Mapa -->
-        <section class="mb-12">
-            <h3 class="text-2xl font-semibold mb-4 text-[#efefef]">Kde nás najdete</h3>
-            <div class="bg-[#111] p-2 rounded-lg">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.9661875496367!2d17.282480276803728!3d49.428453260420355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471254c55251c7bf%3A0x977e4ffd71afe9c7!2zTsOhZHJhxb5uw60gNjU4LCA3NTEgMDEgVG92YcSNb3YtTcSbc3Rv!5e0!3m2!1scs!2scz!4v1769718888110!5m2!1scs!2scz" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0; border-radius: 0.5rem;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </section>
-        
-        <!-- Užitečné odkazy -->
-        <section class="mb-12">
-            <h3 class="text-2xl font-semibold mb-4 text-[#efefef]">Užitečné odkazy</h3>
-            <div class="bg-[#111] p-6 rounded-lg">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="http://www.chess.cz" target="_blank" class="p-4 bg-[#1a1a1a] rounded hover:bg-[#222] transition-colors">
-                        <p class="font-semibold mb-1">Šachový svaz ČR</p>
-                        <p class="text-sm text-gray-400">www.chess.cz</p>
+                <div class="map-shell">
+                    <iframe
+                        class="map-frame"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.9661875496367!2d17.282480276803728!3d49.428453260420355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471254c55251c7bf%3A0x977e4ffd71afe9c7!2zTsOhZHJhxb5uw60gNjU4LCA3NTEgMDEgVG92YcSNb3YtTcSbc3Rv!5e0!3m2!1scs!2scz!4v1769718888110!5m2!1scs!2scz"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-heading-block">
+                    <div>
+                        <p class="section-label">Další zdroje</p>
+                        <h3 class="page-title">Užitečné odkazy</h3>
+                    </div>
+                </div>
+                <div class="link-grid">
+                    <a href="http://www.chess.cz" target="_blank" rel="noreferrer" class="link-tile">
+                        <p class="link-tile__title">Šachový svaz ČR</p>
+                        <p class="link-tile__meta">www.chess.cz</p>
                     </a>
-                    
-                    <a href="http://www.sachy.kvalitne.cz" target="_blank" class="p-4 bg-[#1a1a1a] rounded hover:bg-[#222] transition-colors">
-                        <p class="font-semibold mb-1">Šachy Olomouckého kraje</p>
-                        <p class="text-sm text-gray-400">www.sachy.kvalitne.cz</p>
+                    <a href="http://www.sachy.kvalitne.cz" target="_blank" rel="noreferrer" class="link-tile">
+                        <p class="link-tile__title">Šachy Olomouckého kraje</p>
+                        <p class="link-tile__meta">www.sachy.kvalitne.cz</p>
                     </a>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
-    
-    <footer class="bg-[#111] mt-auto py-8 border-t border-[#333]">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-6">
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
                 <div>
-                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Šachy Tovačov</h3>
-                    <p class="text-gray-400 text-sm">
-                        Šachový klub pro všechny věkové kategorie a úrovně hráčů.
-                    </p>
+                    <h3 class="footer-title">Šachy Tovačov</h3>
+                    <p class="footer-text">Šachový klub pro děti, mládež i dospělé hráče, kteří chtějí trénovat, soutěžit a být součástí živého klubu.</p>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Rychlé odkazy</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="../news/" class="text-gray-400 hover:text-white transition-colors">Novinky</a></li>
-                        <li><a href="../players/" class="text-gray-400 hover:text-white transition-colors">Hráči</a></li>
-                        <li><a href="../standings/" class="text-gray-400 hover:text-white transition-colors">Tabulky</a></li>
-                        <li><a href="../contact/" class="text-gray-400 hover:text-white transition-colors">Kontakt</a></li>
-                    </ul>
+                    <h3 class="footer-title">Rychlé odkazy</h3>
+                    <div class="footer-links">
+                        <a href="../news/">Novinky</a>
+                        <a href="../players/">Hráči</a>
+                        <a href="../standings/">Tabulky</a>
+                        <a href="../contact/">Kontakt</a>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-lg mb-3 text-[#efefef]">Kontakt</h3>
-                    <p class="text-gray-400 text-sm mb-1">Email: calajiri@seznam.cz</p>
-                    <p class="text-gray-400 text-sm">Tel: +420 608 618 163</p>
+                    <h3 class="footer-title">Kontakt</h3>
+                    <p class="footer-text">Email: <a href="mailto:calajiri@seznam.cz">calajiri@seznam.cz</a></p>
+                    <p class="footer-text">Telefon: <a href="tel:+420608618163">+420 608 618 163</a></p>
                 </div>
             </div>
-            <div class="border-t border-[#333] pt-6 text-center text-gray-500 text-sm flex flex-row flex-wrap justify-center md:justify-between gap-4">
-                <p class="">Website created by RV + MZ with 💙</p>
-                <p class="block md:absolute md:left-1/2 md:-translate-x-1/2">&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
-                <a href="../login/" class="hover:underline">Admin-Panel</a>
+            <div class="footer-bottom">
+                <p>Website created by RV + MZ with care.</p>
+                <p>&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
+                <a href="mailto:calajiri@seznam.cz">Napište nám</a>
             </div>
         </div>
     </footer>
-
 </body>
 </html>

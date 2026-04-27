@@ -4,89 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../output.css">
-    <!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+    <link rel="stylesheet" href="../theme.css">
     <title>Šachy Tovačov &raquo; Tabulky</title>
 </head>
-<body class="flex min-h-screen flex-col bg-[#0a0a0a] text-[#dfdfdf]">
-    <header class="">
-        <div class="flex flex-row flex-wrap justify-center gap-5 bg-[#111] p-4 text-lg font-semibold text-[#dfdfdf] md:justify-end">
-            <a href="../" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Úvod</a>
-            <a href="../news/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Novinky</a>
-            <a href="../players/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Hráči</a>
-            <a href="#" class="after:block after:origin-bottom after:scale-x-100 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Tabulky</a>
-            <a href="../contact/" class="after:block after:origin-bottom after:scale-x-0 after:border-b-2 after:transition-all after:duration-200 hover:after:scale-x-100">Kontakt</a>
-        </div>
-        <div class="bg-black">
-            <div class="relative flex h-64 w-full items-center justify-center before:absolute before:inset-0 before:bg-[url(./img/header_background.avif)] before:bg-cover before:bg-bottom before:opacity-20">
-                <h1 class="relative z-10 text-3xl font-bold text-[#efefef]" id="main-heading">Šachy Tovačov</h1>
+<body class="site-body">
+    <header class="site-header">
+        <div class="topbar">
+            <div class="topbar-inner">
+                <a href="../" class="brand-mark">
+                    <span class="brand-mark__piece" aria-hidden="true">&#9812;</span>
+                    <span>Šachy Tovačov</span>
+                </a>
+                <nav class="site-nav" aria-label="Hlavní navigace">
+                    <a href="../" class="nav-link">Úvod</a>
+                    <a href="../news/" class="nav-link">Novinky</a>
+                    <a href="../players/" class="nav-link">Hráči</a>
+                    <a href="./" class="nav-link is-active">Tabulky</a>
+                    <a href="../contact/" class="nav-link">Kontakt</a>
+                </nav>
             </div>
         </div>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="hero-kicker">Rozpisy a pořadí</p>
+                    <h1 class="hero-title" id="main-heading">Tabulky</h1>
+                    <p class="hero-text">Výsledky, skupiny a losování v přehledné podobě, která působí živěji a zároveň zůstává praktická pro rychlé čtení během sezóny.</p>
+                    <div class="hero-badges">
+                        <span class="hero-badge">Mládežnické skupiny</span>
+                        <span class="hero-badge">Rozpisy kol</span>
+                        <span class="hero-badge">Rychlá orientace</span>
+                    </div>
+                </div>
+                <div class="hero-piece" aria-hidden="true">&#9814;</div>
+            </div>
+        </section>
     </header>
 
-    <main class="mx-auto max-w-6xl grow px-4 py-8">
-        <section>
-            <h2 class="mb-2 text-2xl font-semibold text-[#efefef]">Mládež</h2>
-            <p class="mb-4 text-gray-400" id="youth-standings-info">2. losovací kolo od 13.3.2026</p>
-            <div class="overflow-x-auto">
-                <table class="w-full border-collapse text-[#dfdfdf]">
-                    <thead>
-                        <tr class="bg-[#222]">
-                            <th class="border border-[#333] p-2">Skupina</th>
-                            <th class="border border-[#333] p-2">1</th>
-                            <th class="border border-[#333] p-2">2</th>
-                            <th class="border border-[#333] p-2">3</th>
-                            <th class="border border-[#333] p-2">4</th>
-                        </tr>
-                    </thead>
-                    <tbody id="youth-standings-tbody">
-                        <tr class="bg-[#111]">
-                            <td class="border border-[#333] p-2 font-semibold">Vedoucí dvojice</td>
-                            <td class="border border-[#333] p-2">1. Holas Jan</td>
-                            <td class="border border-[#333] p-2">2. Bezroučková Adéla</td>
-                            <td class="border border-[#333] p-2">-</td>
-                            <td class="border border-[#333] p-2">-</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <main class="page-main">
+        <section class="page-intro">
+            <div>
+                <p class="section-label">Soutěžní přehled</p>
+                <h2 class="page-title">Tabulky, které už nejsou jen tmavá technická plocha</h2>
+                <p class="page-lead">Důležitá data zůstávají v centru pozornosti, ale nově je obklopuje světlé a čitelné prostředí, které na webu konečně působí jako součást šachového klubu a ne jen jako příloha.</p>
             </div>
-
-            <div class="mt-8">
-                <h3 class="mb-3 text-xl font-semibold text-[#efefef]">Informace</h3>
-                <ul class="space-y-3" id="youth-text-list"></ul>
-            </div>
-
-            <div class="mt-10 space-y-6" id="youth-schedules"></div>
+            <aside class="intro-aside">
+                <p class="intro-aside__label">Co tu najdete</p>
+                <p class="intro-aside__text">Aktuální pořadí skupin, doprovodné informace i rozpisy dalších kol. Všechny dynamické bloky přebírají jednotný styl stejně jako zbytek webu.</p>
+            </aside>
         </section>
+
+        <div class="stack-lg">
+            <section class="surface-card table-card">
+                <div class="table-card__header">
+                    <h2 class="card-title">Mládež</h2>
+                    <p class="card-lead" id="youth-standings-info">2. losovací kolo od 13. 3. 2026</p>
+                </div>
+                <div class="table-scroll">
+                    <table class="standings-table">
+                        <thead>
+                            <tr>
+                                <th>Skupina</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                            </tr>
+                        </thead>
+                        <tbody id="youth-standings-tbody">
+                            <tr class="table-row">
+                                <td class="table-cell" data-label="Skupina">Vedoucí dvojice</td>
+                                <td class="table-cell" data-label="1">1. Holas Jan</td>
+                                <td class="table-cell" data-label="2">2. Bezroučková Adéla</td>
+                                <td class="table-cell" data-label="3">-</td>
+                                <td class="table-cell" data-label="4">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="surface-card table-card">
+                <div class="table-card__header">
+                    <h3 class="card-title">Informace</h3>
+                    <p class="card-lead">Krátké poznámky k průběhu soutěže, losování a organizaci jednotlivých kol.</p>
+                </div>
+                <div class="table-scroll">
+                    <ul class="note-list" id="youth-text-list"></ul>
+                </div>
+            </section>
+
+            <section class="schedule-grid" id="youth-schedules"></section>
+        </div>
     </main>
 
-    <footer class="mt-auto border-t border-[#333] bg-[#111] py-8">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="mb-6 grid gap-8 md:grid-cols-3">
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Šachy Tovačov</h3>
-                    <p class="text-sm text-gray-400">
-                        Šachový klub pro všechny věkové kategorie a úrovně hráčů.
-                    </p>
+                    <h3 class="footer-title">Šachy Tovačov</h3>
+                    <p class="footer-text">Šachový klub pro děti, mládež i dospělé hráče, kteří chtějí trénovat, soutěžit a být součástí živého klubu.</p>
                 </div>
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Rychlé odkazy</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="../news/" class="text-gray-400 transition-colors hover:text-white">Novinky</a></li>
-                        <li><a href="../players/" class="text-gray-400 transition-colors hover:text-white">Hráči</a></li>
-                        <li><a href="../standings/" class="text-gray-400 transition-colors hover:text-white">Tabulky</a></li>
-                        <li><a href="../contact/" class="text-gray-400 transition-colors hover:text-white">Kontakt</a></li>
-                    </ul>
+                    <h3 class="footer-title">Rychlé odkazy</h3>
+                    <div class="footer-links">
+                        <a href="../news/">Novinky</a>
+                        <a href="../players/">Hráči</a>
+                        <a href="../standings/">Tabulky</a>
+                        <a href="../contact/">Kontakt</a>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="mb-3 text-lg font-semibold text-[#efefef]">Kontakt</h3>
-                    <p class="mb-1 text-sm text-gray-400">Email: email@email.email</p>
-                    <p class="text-sm text-gray-400">Tel: +420 123 456 789</p>
+                    <h3 class="footer-title">Kontakt</h3>
+                    <p class="footer-text">Email: <a href="mailto:calajiri@seznam.cz">calajiri@seznam.cz</a></p>
+                    <p class="footer-text">Telefon: <a href="tel:+420608618163">+420 608 618 163</a></p>
                 </div>
             </div>
-            <div class="flex flex-row flex-wrap justify-center gap-4 border-t border-[#333] pt-6 text-center text-sm text-gray-500 md:justify-between">
-                <p class="">Website created by RV + MZ with love</p>
-                <p class="block md:absolute md:left-1/2 md:-translate-x-1/2">&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
-                <a href="../login/" class="hover:underline">Admin-Panel</a>
+            <div class="footer-bottom">
+                <p>Website created by RV + MZ with care.</p>
+                <p>&copy; 2026 Šachy Tovačov. Všechna práva vyhrazena.</p>
+                <a href="mailto:calajiri@seznam.cz">Napište nám</a>
             </div>
         </div>
     </footer>
