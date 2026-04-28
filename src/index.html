@@ -78,7 +78,7 @@
                 <div class="story-copy">
                     <p>Šachový klub Tovačov si vybudoval stabilní pozici mezi ostatními šachovými oddíly Olomouckého kraje. Naším cílem je rozvíjet členskou základnu a vytvářet prostor pro všechny milovníky šachové hry bez ohledu na věk či výkonnostní úroveň.</p>
                     <p>Již několik let úzce spolupracujeme se Základní školou Tovačov, kde pomáháme s vedením šachového kroužku otevřeného všem zájemcům. Nabízíme místo pro úplné začátečníky i zkušené hráče a věříme, že právě tato otevřenost posouvá celý oddíl dopředu.</p>
-                    <p>Oddíl má v současnosti patnáct stabilních aktivních členů a rádi přivítáme každého nového zájemce z Tovačova i širokého okolí.</p>
+                    <p>Oddíl má v současnosti <span class="numberOfPlayers">-</span> stabilních aktivních členů a rádi přivítáme každého nového zájemce z Tovačova i širokého okolí.</p>
                 </div>
             </section>
 
@@ -131,5 +131,34 @@
             </div>
         </div>
     </footer>
+    <script>
+        const itemsList = document.querySelectorAll(".numberOfPlayers")
+
+        const loadPlayerCounter = async () => {
+            try {
+                const res = await fetch("data_tabulka.json")
+                const data = await res.json()
+
+                let playerAmount = 0;
+
+                data.forEach((player) => {
+                    if (player.registrace == "Aktivní") {
+                        playerAmount++
+                    }
+                })
+
+                itemsList.forEach((item) => {
+                    item.innerHTML = playerAmount
+                })
+            } catch (e) {
+                console.log(e)
+                itemsList.forEach((item) => {
+                    item.innerHTML = "Došlo k chybě při načítání dat."
+                })  
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", loadPlayerCounter)
+    </script>
 </body>
 </html>

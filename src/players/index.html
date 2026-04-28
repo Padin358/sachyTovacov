@@ -58,6 +58,7 @@
             <div class="table-card__header">
                 <h2 class="card-title">Tabulka hráčů</h2>
                 <p class="card-lead">Aktuální soupiska s důrazem na přesnost záznamů.</p>
+                <p class="card-lead">Celkový počet aktivních členů: <span class="numberOfPlayers">-</span></p>
             </div>
             <div class="table-scroll">
                 <table class="standings-table">
@@ -115,5 +116,34 @@
     </footer>
 
     <script src="../js/players.js" type="module"></script>
+    <script>
+        const itemsList = document.querySelectorAll(".numberOfPlayers")
+
+        const loadPlayerCounter = async () => {
+            try {
+                const res = await fetch("../data_tabulka.json")
+                const data = await res.json()
+
+                let playerAmount = 0;
+
+                data.forEach((player) => {
+                    if (player.registrace == "Aktivní") {
+                        playerAmount++
+                    }
+                })
+
+                itemsList.forEach((item) => {
+                    item.innerHTML = playerAmount
+                })
+            } catch (e) {
+                console.log(e)
+                itemsList.forEach((item) => {
+                    item.innerHTML = "Došlo k chybě při načítání dat."
+                })  
+            }
+        }
+
+        window.addEventListener("DOMContentLoaded", loadPlayerCounter)
+    </script>
 </body>
 </html>
